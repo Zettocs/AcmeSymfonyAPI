@@ -1,0 +1,24 @@
+controllers:
+  resource: ../src/Controller/
+  type: attribute
+
+not_found:
+  path: /{url}
+  controller: App\Controller\ErrorController::showNotFound
+  requirements:
+    url: ".+"
+
+security_inscription:
+  path: /api/inscription
+  controller: App\Controller\SecurityController::inscription
+  methods: POST
+
+security_connexion:
+  path: /api/connexion
+  controller: App\Controller\SecurityController::login
+  methods: POST
+
+security_deconnexion:
+  path: /api/deconnexion
+  controller: App\Controller\SecurityController::logout
+  methods: POST
