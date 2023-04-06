@@ -145,6 +145,6 @@ class __TwigTemplate_a180e4628652a17c49150c9fe070a006 extends Template
         </div>
 
     </body>
-{% endblock %}", "errors/404.html.twig", "C:\\EPSI Projet\\ACME Symfony\\templates\\errors\\404.html.twig");
+{% endblock %}", "errors/404.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\errors\\404.html.twig");
     }
 }

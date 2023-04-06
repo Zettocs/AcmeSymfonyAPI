@@ -4,11 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Utilisateur;
 use App\Form\InscriptionType;
+use App\Entity\Produit;
+
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -31,6 +34,7 @@ class SecurityController extends AbstractController
     public function __construct(ManagerRegistry $doctrine)
     {
         $this->doctrine = $doctrine;
+        
     }
     /**
      * @Route("/inscription", name="security_inscription")
@@ -78,14 +82,19 @@ class SecurityController extends AbstractController
      * @Route("/deconnexion", name="security_deconnexion")
      */
 
-    public function logout()
+    public function logout(SessionInterface $session)
     {
+        // Supprime la session de l'utilisateur connecté
+        $session->clear();
+
+        return $this->redirectToRoute('home');
     }
     /**
      * @Route("/api/connexion", name="security_api_connexion", methods={"POST"})
      */
-    public function apiLogin(Request $request, JWTTokenManagerInterface $jwtManager, UserPasswordHasherInterface $encoder)
+    public function apiLogin(Request $request, JWTTokenManagerInterface $jwtManager, UserPasswordHasherInterface $encoder, SessionInterface $session)
     {
+        dd('apiLogin called');
         // Récupérez les données de connexion du corps de la requête
         $data = json_decode($request->getContent(), true);
         $email = $data['email'] ?? '';
@@ -93,6 +102,8 @@ class SecurityController extends AbstractController
 
         // Trouvez l'utilisateur dans la base de données en fonction de l'email
         $user = $this->doctrine->getRepository(Utilisateur::class)->findOneBy(['email' => $email]);
+
+        
 
         // Si l'utilisateur n'existe pas ou que le mot de passe est incorrect, renvoyez une réponse avec une erreur
         if (!$user || !$encoder->isPasswordValid($user, $password)) {
@@ -112,6 +123,7 @@ class SecurityController extends AbstractController
                 'ville' => $user->getVille(),
                 'pays' => $user->getPays(),
             ],
+            
             'token' => $token,
         ]);
     }
@@ -123,4 +135,29 @@ class SecurityController extends AbstractController
     {
         throw new \Exception('Cette méthode ne doit jamais être appelée directement');
     }
+
+    /**
+     * @Route("/api/produits", name="api_produits", methods={"GET"})
+     */
+
+    public function getProduits(): JsonResponse
+    {
+        $produits = $this->doctrine->getRepository(Produit::class)->findAll();
+        
+        $produitsArray = [];
+        foreach ($produits as $produit) {
+            $produitsArray[] = [
+                'IdProduit_' => $produit->getIdProduit(),
+                'Nom' => $produit->getNom(),
+                'Reference' => $produit->getRéférence(),
+                'Prix' => $produit->getPrix(),
+                'Photo' => $produit->getPhoto()
+                // ajouter ici les autres propriétés de l'entité "Produit"
+            ];
+        }
+        
+        return new JsonResponse($produitsArray);
+    }
+
+    
 }

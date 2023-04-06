@@ -171,6 +171,6 @@ class __TwigTemplate_0e5e215f889133075ea935861087e778 extends Template
         {%- endfor -%}
     </pre>
 {% endif %}
-", "@Doctrine/Collector/explain.html.twig", "C:\\EPSI Projet\\ACME Symfony\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\explain.html.twig");
+", "@Doctrine/Collector/explain.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\explain.html.twig");
     }
 }

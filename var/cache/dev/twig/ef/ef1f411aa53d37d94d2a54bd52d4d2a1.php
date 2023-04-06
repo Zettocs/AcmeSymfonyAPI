@@ -327,6 +327,6 @@ class __TwigTemplate_768e7a1f248a33d1c33a722911ae2a3f extends Template
 \t\t<div class=\"backgroun_shoes\"><img class=\"image\" src=\"{{ asset ('images/chaussure_accueil1.png') }}\"></div>
 \t</div>
 </div>{% endblock %}
-", "accueil/index.html.twig", "C:\\EPSI Projet\\ACME Symfony\\templates\\accueil\\index.html.twig");
+", "accueil/index.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\accueil\\index.html.twig");
     }
 }

@@ -154,6 +154,6 @@ class __TwigTemplate_e1aa879ca7bc78c9426e3a09e1d84d39 extends Template
     </ul>
 </div>
 {% endblock %}
-", "product/index.html.twig", "C:\\EPSI Projet\\ACME Symfony\\templates\\product\\index.html.twig");
+", "product/index.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\product\\index.html.twig");
     }
 }

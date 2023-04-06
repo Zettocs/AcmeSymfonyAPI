@@ -1,0 +1,22 @@
+security_inscription:
+  path: /api/inscription
+  controller: App\Controller\SecurityController::inscription
+  methods: POST
+
+security_connexion:
+  path: /api/connexion
+  controller: App\Controller\SecurityController::login
+  methods: POST
+
+security_deconnexion:
+  path: /api/deconnexion
+  controller: App\Controller\SecurityController::logout
+  methods: POST
+
+
+not_found:
+  path: /{url}
+  controller: App\Controller\ErrorController::showNotFound
+  requirements:
+    url: ".+"
+    [{"IdProduit_":1,"Nom":"Acme Blue Gale Low","Reference":"57XK-9HJ3-2LPM","Prix":"299.00","Photo":"AcmeBlueGaleLow.png"},{"IdProduit_":2,"Nom":"Acme University Blue High","Reference":"92FJ-3KL7-5NMT","Prix":"512.00","Photo":"AcmeUniversityBlueHigh.png"},{"IdProduit_":3,"Nom":"Acme Big Blue High","Reference":"7B45-8NH6-2KJ9","Prix":"512.00","Photo":"AcmeBigBlueHigh.png"},{"IdProduit_":4,"Nom":"Acme Flaque d\u0027eau low","Reference":"3LPK-9JH2-5HNR","Prix":"679.00","Photo":"AcmeFlaqueEauLow.png"},{"IdProduit_":5,"Nom":"Acme Blue High","Reference":"6MK9-2HJL-4K36","Prix":"450.00","Photo":"AcmeBlueHigh.png"},{"IdProduit_":6,"Nom":"Acme deep royal","Reference":"8J6N-4K5H-9F83","Prix":"367.99","Photo":"AcmeDeepRoyalHigh.png"},{"IdProduit_":7,"Nom":"Acme Marina Low","Reference":"4HJ5-6L7K-2M8N","Prix":"340.00","Photo":"AcmeMarinaLow.png"},{"IdProduit_":8,"Nom":"Acme Turquoi Low","Reference":"1L4K-9JH8-6B32","Prix":"467.00","Photo":"AcmeTurquoiseLow.png"},{"IdProduit_":9,"Nom":"Acme X Louis Vuitton Low","Reference":"5N6M-3K8J-1H7L","Prix":"999.00","Photo":"AcmeXLouisVuittonBlueLow.png"},{"IdProduit_":10,"Nom":"Acme White Teeth Low","Reference":"2K5H-9J6N-4L8B","Prix":"727.00","Photo":"AcmeWhiteTeethLow.png"},{"IdProduit_":11,"Nom":"Acme White Blue Ice Low","Reference":"7J3L-6K2N-5H9M","Prix":"648.00","Photo":"AcmeWhiteBlueIceLow.png"},{"IdProduit_":12,"Nom":"Acme Waterdrop Low","Reference":"3K9J-7L6N-1H5B","Prix":"259.00","Photo":"AcmeWaterDropLow.png"},{"IdProduit_":13,"Nom":"Acme Plouf Low","Reference":"8N5H-4M2K-9J7L","Prix":"877.00","Photo":"AcmePloufLow.png"},{"IdProduit_":14,"Nom":"Acme Street Blue Low","Reference":"9L2K-7J6N-4H5B","Prix":"299.90","Photo":"AcmeStreetBlueLow.png"},{"IdProduit_":15,"Nom":"Acme Dusty Ice Low","Reference":"5J8H-6N4L-1K7M","Prix":"459.00","Photo":"AcmeDustyIceLow.png"},{"IdProduit_":16,"Nom":"Acme Dark Blue Low","Reference":"4N5H-3K6J-7L8M","Prix":"489.00","Photo":"AcmeDarkBlueLow.png"},{"IdProduit_":17,"Nom":"Acme Cloudy Day Low","Reference":"2H6N-9K7J-5L8M","Prix":"634.00","Photo":"AcmeCloudyDayLow.png"},{"IdProduit_":18,"Nom":"Acme Blue Sky Low","Reference":"1K3L-7J6N-8H5M","Prix":"388.00","Photo":"AcmeBlueSkyLow.png"},{"IdProduit_":19,"Nom":"Acme Blue And Whit Low","Reference":"9J5H-3L8M-1K7N","Prix":"584.00","Photo":"AcmeBlueAndWhiteLow.png"}]

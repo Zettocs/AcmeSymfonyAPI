@@ -67,6 +67,6 @@ class __TwigTemplate_1b1ec8a488bbb82b9fca38303a7ed71d extends Template
         return new Source("<footer style=\"position: fixed;left: 0;bottom: 0; width: 100%; background-color: #27476E;text-align: center;color:white;height: 30px;\">
 \t<p>© 2022 ACME</p>
 </footer>
-", "_layout/footer.html.twig", "C:\\EPSI Projet\\ACME Symfony\\templates\\_layout\\footer.html.twig");
+", "_layout/footer.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\_layout\\footer.html.twig");
     }
 }

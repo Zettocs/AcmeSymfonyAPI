@@ -21,8 +21,12 @@ return [
         '/shop' => [[['_route' => 'accueil_shop', '_controller' => 'App\\Controller\\AccueilShopController::index'], null, null, null, false, false, null]],
         '/panier' => [[['_route' => 'panier', '_controller' => 'App\\Controller\\AcmeController::panier'], null, null, null, false, false, null]],
         '/confirmationPanier' => [[['_route' => 'confirmationPanier', '_controller' => 'App\\Controller\\AcmeController::confirmationPanier'], null, null, null, false, false, null]],
+        '/inscription' => [[['_route' => 'security_inscription', '_controller' => 'App\\Controller\\SecurityController::inscription'], null, null, null, false, false, null]],
+        '/connexion' => [[['_route' => 'security_connexion', '_controller' => 'App\\Controller\\SecurityController::login'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/deconnexion' => [[['_route' => 'security_deconnexion', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/api/connexion' => [[['_route' => 'security_api_connexion', '_controller' => 'App\\Controller\\SecurityController::apiLogin'], null, ['POST' => 0], null, false, false, null]],
         '/api/deconnexion' => [[['_route' => 'security_api_deconnexion', '_controller' => 'App\\Controller\\SecurityController::apiLogout'], null, ['POST' => 0], null, false, false, null]],
+        '/api/produits' => [[['_route' => 'api_produits', '_controller' => 'App\\Controller\\SecurityController::getProduits'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -42,12 +46,6 @@ return [
                     .')'
                 .')'
                 .'|/produit/([^/]++)(*:186)'
-                .'|/(.+)(*:199)'
-                .'|/api/(?'
-                    .'|inscription(*:226)'
-                    .'|connexion(*:243)'
-                    .'|deconnexion(*:262)'
-                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -58,12 +56,8 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        186 => [[['_route' => 'produit_detail', '_controller' => 'App\\Controller\\AccueilShopController::produitDetail'], ['id'], null, null, false, true, null]],
-        199 => [[['_route' => 'not_found', '_controller' => 'App\\Controller\\ErrorController::showNotFound'], ['url'], null, null, false, true, null]],
-        226 => [[['_route' => 'security_inscription', '_controller' => 'App\\Controller\\SecurityController::inscription'], [], ['POST' => 0], null, false, false, null]],
-        243 => [[['_route' => 'security_connexion', '_controller' => 'App\\Controller\\SecurityController::login'], [], ['POST' => 0], null, false, false, null]],
-        262 => [
-            [['_route' => 'security_deconnexion', '_controller' => 'App\\Controller\\SecurityController::logout'], [], ['POST' => 0], null, false, false, null],
+        186 => [
+            [['_route' => 'produit_detail', '_controller' => 'App\\Controller\\AccueilShopController::produitDetail'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
