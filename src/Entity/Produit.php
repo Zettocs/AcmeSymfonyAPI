@@ -49,9 +49,31 @@ class Produit
      */
     private $photo;
 
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="Stock", type="int", length=5, nullable=false)
+     */
+    private $stock;
+
+
+
     public function getIdProduit(): ?int
     {
         return $this->idproduit;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+
+    }
+
+    public function setStock(?int $stock): self
+    {
+        $this->stock = $stock;
+
+        return $this;
     }
 
     public function getNom(): ?string

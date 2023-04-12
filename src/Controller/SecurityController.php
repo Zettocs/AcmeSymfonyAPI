@@ -30,8 +30,9 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 class SecurityController extends AbstractController
 {
     private $doctrine;
+    private $entityManager;
 
-    public function __construct(ManagerRegistry $doctrine)
+    public function __construct(ManagerRegistry $doctrine, EntityManagerInterface $entityManager)
     {
         $this->doctrine = $doctrine;
         
@@ -97,7 +98,7 @@ class SecurityController extends AbstractController
         dd('apiLogin called');
         // Récupérez les données de connexion du corps de la requête
         $data = json_decode($request->getContent(), true);
-        $email = $data['email'] ?? '';
+        $email = isset($data['email']) ? $data['email'] : '';
         $password = $data['password'] ?? '';
 
         // Trouvez l'utilisateur dans la base de données en fonction de l'email
@@ -151,13 +152,40 @@ class SecurityController extends AbstractController
                 'Nom' => $produit->getNom(),
                 'Reference' => $produit->getRéférence(),
                 'Prix' => $produit->getPrix(),
-                'Photo' => $produit->getPhoto()
+                'Photo' => $produit->getPhoto(),
+                'Stock' => $produit->getStock()
                 // ajouter ici les autres propriétés de l'entité "Produit"
             ];
         }
         
         return new JsonResponse($produitsArray);
     }
+
+    /**
+ * @Route("/api/modifier-stock", methods={"POST"})
+ */
+public function modifierStock(Request $request, EntityMangerInterface $entityManager): JsonResponse
+{
+    $data = json_decode($request->getContent(), true);
+
+    // Récupérer l'identifiant du produit et la quantité à modifier
+    if (isset($data['id_produit'])) {
+        $idProduit = $data['id_produit'];
+    }
+
+    if (isset($data['quantite'])) {
+        $quantite = $data['quantite'];
+    }
+
+    // Mettre à jour la quantité de stock du produit
+    $entityManager = $this->getDoctrine()->getManager();
+    $produit = $entityManager->getRepository(Produit::class)->find($idProduit);
+    $produit->setStock($produit->getStock() - $quantite);
+    $entityManager->persist($produit);
+    $entityManager->flush();
+
+    return new JsonResponse(['success' => true]);
+}
 
     
 }
