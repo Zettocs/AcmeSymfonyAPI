@@ -35,12 +35,28 @@ class AccueilShopController extends AbstractController
     /**
      * @Route("/produit/{id}", name="produit_detail")
      */
-    public function produitDetail(Produit $produit): Response
+    public function produitDetail(Produit $produit, Request $request): Response
     {
-        // Trouvez le produit par son ID en utilisant une instance de Doctrine EntityManager
+        $produitsPanier = array();
+        if ($request->isMethod('POST') && $request->request->has('ajouter_au_panier')) {
+            $produitPanier = array(
+                'idproduit' => $request->request->get('idproduit'),
+                'nom' => $request->request->get('nom'),
+                'prix' => $request->request->get('prix')
+            );
+            // Ajouter le produit au panier
+            $request->getSession()->get('panier', array());
+            $panier = $request->getSession()->get('panier');
+            $panier[] = $produitPanier;
+            $request->getSession()->set('panier', $panier);
+            $message = "Le produit a été ajouté au panier";
+        }
+        // Trouver le produit par son ID en utilisant une instance de Doctrine EntityManager
 
         return $this->render('accueil_shop/produit_detail.html.twig', [
             'produit' => $produit,
+            'message' => $message ?? null,
         ]);
     }
+
 }

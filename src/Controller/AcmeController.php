@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Service\MyService;
 use App\Entity\Inscription;
 use App\Entity\Produit;
 use App\Entity\Product;
@@ -24,42 +24,4 @@ class AcmeController extends AbstractController
         return $this->render('acme/homepage.html.twig');
     }
 
-
-    /**
-     * @Route("/panier", name="panier")
-     */
-
-    public function panier(): Response
-    {
-
-        $dsn = 'mysql:host=localhost;dbname=acme;charset=utf8';
-        $username = 'root';
-        $password = '';
-
-        $pdo = new PDO($dsn, $username, $password);
-
-
-
-
-        $query = $pdo->prepare('SELECT nom, prix, quantite FROM panier');
-        $query->execute();
-
-        $panier = $query->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-
-        return $this->render('acme/panier.html.twig', [
-            'panier' => $panier,
-        ]);
-    }
-
-    /**
-     * @Route("/confirmationPanier", name="confirmationPanier")
-     */
-
-    public function confirmationPanier(): Response
-    {
-        return $this->render('acme/confirmation.html.twig');
-    }
 }

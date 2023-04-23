@@ -46,23 +46,33 @@
             <tr>
                 <th>Nom</th>
                 <th>Prix</th>
-                <th>Quantite</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
-            {% for produit in panier %}
-
+            {% if produits is not empty %}
+                {% for index, produit in produits %}
+                    <tr>
+                        <td>{{ produit.nom }}</td>
+                        <td>{{ produit.prix }} €</td>
+                        <td><a href="{{ path('panier_supprimer', {'index': index}) }}" class="btn btn-danger">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
                 <tr>
-                    <td>{{ produit.nom }}</td>
-                    <td>{{ produit.prix }}</td>
-                    <td>{{ produit.quantite }}</td>
+                    <td>Total</td>
+                    <td>{{ total }} €</td>
+                    <td></td>
                 </tr>
-            {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">Votre panier est vide</td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
+    <a class="btn btn-primary">Confirmer la commande</a>
+</div> 
 
-    <a href="{{ path('confirmationPanier') }}" class="btn btn-primary">Confirmer la commande</a> -
 
-</div>
 
 {% endblock %}

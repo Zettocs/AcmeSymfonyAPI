@@ -33,10 +33,11 @@ class SecurityController extends AbstractController
     private $entityManager;
 
     public function __construct(ManagerRegistry $doctrine, EntityManagerInterface $entityManager)
-    {
-        $this->doctrine = $doctrine;
-        
-    }
+	{
+   	 $this->doctrine = $doctrine;
+   	 $this->entityManager = $entityManager;
+	}
+
     /**
      * @Route("/inscription", name="security_inscription")
      */
@@ -95,14 +96,15 @@ class SecurityController extends AbstractController
      */
     public function apiLogin(Request $request, JWTTokenManagerInterface $jwtManager, UserPasswordHasherInterface $encoder, SessionInterface $session)
     {
-        dd('apiLogin called');
+       
         // Récupérez les données de connexion du corps de la requête
         $data = json_decode($request->getContent(), true);
         $email = isset($data['email']) ? $data['email'] : '';
         $password = $data['password'] ?? '';
 
         // Trouvez l'utilisateur dans la base de données en fonction de l'email
-        $user = $this->doctrine->getRepository(Utilisateur::class)->findOneBy(['email' => $email]);
+        $userRepository = $this->entityManager->getRepository(Utilisateur::class);
+        $user = $userRepository->findOneBy(['email' => $email]);
 
         
 
@@ -153,39 +155,40 @@ class SecurityController extends AbstractController
                 'Reference' => $produit->getRéférence(),
                 'Prix' => $produit->getPrix(),
                 'Photo' => $produit->getPhoto(),
-                'Stock' => $produit->getStock()
-                // ajouter ici les autres propriétés de l'entité "Produit"
+                'Stock' => $produit->getStock(),
             ];
         }
         
         return new JsonResponse($produitsArray);
     }
 
-    /**
+/**
  * @Route("/api/modifier-stock", methods={"POST"})
  */
-public function modifierStock(Request $request, EntityMangerInterface $entityManager): JsonResponse
+
+public function modifierStock(Request $request, EntityManagerInterface $entityManager, ManagerRegistry $doctrine): JsonResponse
 {
-    $data = json_decode($request->getContent(), true);
+    $idProduit = null;
+    $quantite = null;
 
     // Récupérer l'identifiant du produit et la quantité à modifier
-    if (isset($data['id_produit'])) {
-        $idProduit = $data['id_produit'];
+    if (isset($_POST['idProduit'])) {
+        $idProduit = $_POST['idProduit'];
     }
-
-    if (isset($data['quantite'])) {
-        $quantite = $data['quantite'];
+    if (isset($_POST['quantite'])) {
+        $quantite = $_POST['quantite'];
     }
 
     // Mettre à jour la quantité de stock du produit
-    $entityManager = $this->getDoctrine()->getManager();
+    $entityManager = $doctrine->getManager();
     $produit = $entityManager->getRepository(Produit::class)->find($idProduit);
-    $produit->setStock($produit->getStock() - $quantite);
+    $produit->setStock($produit->getStock() + $quantite);
     $entityManager->persist($produit);
     $entityManager->flush();
 
     return new JsonResponse(['success' => true]);
 }
+
 
     
 }

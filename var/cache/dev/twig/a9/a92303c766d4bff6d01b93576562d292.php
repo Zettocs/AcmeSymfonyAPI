@@ -130,46 +130,62 @@ class __TwigTemplate_141e84890b0da4a5baa228af3c69b6cf extends Template
             <tr>
                 <th>Nom</th>
                 <th>Prix</th>
-                <th>Quantite</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
             ";
         // line 53
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["panier"]) || array_key_exists("panier", $context) ? $context["panier"] : (function () { throw new RuntimeError('Variable "panier" does not exist.', 53, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["produit"]) {
+        if ( !twig_test_empty((isset($context["produits"]) || array_key_exists("produits", $context) ? $context["produits"] : (function () { throw new RuntimeError('Variable "produits" does not exist.', 53, $this->source); })()))) {
             // line 54
-            echo "
-                <tr>
+            echo "                ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["produits"]) || array_key_exists("produits", $context) ? $context["produits"] : (function () { throw new RuntimeError('Variable "produits" does not exist.', 54, $this->source); })()));
+            foreach ($context['_seq'] as $context["index"] => $context["produit"]) {
+                // line 55
+                echo "                    <tr>
+                        <td>";
+                // line 56
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "nom", [], "any", false, false, false, 56), "html", null, true);
+                echo "</td>
+                        <td>";
+                // line 57
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "prix", [], "any", false, false, false, 57), "html", null, true);
+                echo " €</td>
+                        <td><a href=\"";
+                // line 58
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier_supprimer", ["index" => $context["index"]]), "html", null, true);
+                echo "\" class=\"btn btn-danger\">Supprimer</a></td>
+                    </tr>
+                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['index'], $context['produit'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 61
+            echo "                <tr>
+                    <td>Total</td>
                     <td>";
-            // line 56
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "nom", [], "any", false, false, false, 56), "html", null, true);
-            echo "</td>
-                    <td>";
-            // line 57
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "prix", [], "any", false, false, false, 57), "html", null, true);
-            echo "</td>
-                    <td>";
-            // line 58
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "quantite", [], "any", false, false, false, 58), "html", null, true);
-            echo "</td>
+            // line 63
+            echo twig_escape_filter($this->env, (isset($context["total"]) || array_key_exists("total", $context) ? $context["total"] : (function () { throw new RuntimeError('Variable "total" does not exist.', 63, $this->source); })()), "html", null, true);
+            echo " €</td>
+                    <td></td>
+                </tr>
+            ";
+        } else {
+            // line 67
+            echo "                <tr>
+                    <td colspan=\"3\">Votre panier est vide</td>
                 </tr>
             ";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['produit'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 61
+        // line 71
         echo "        </tbody>
     </table>
+    <a class=\"btn btn-primary\">Confirmer la commande</a>
+</div> 
 
-    <a href=\"";
-        // line 64
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("confirmationPanier");
-        echo "\" class=\"btn btn-primary\">Confirmer la commande</a> -
 
-</div>
 
 ";
         
@@ -192,7 +208,7 @@ class __TwigTemplate_141e84890b0da4a5baa228af3c69b6cf extends Template
 
     public function getDebugInfo()
     {
-        return array (  169 => 64,  164 => 61,  155 => 58,  151 => 57,  147 => 56,  143 => 54,  139 => 53,  125 => 41,  115 => 40,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  183 => 71,  177 => 67,  170 => 63,  166 => 61,  157 => 58,  153 => 57,  149 => 56,  146 => 55,  141 => 54,  139 => 53,  125 => 41,  115 => 40,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -245,25 +261,36 @@ class __TwigTemplate_141e84890b0da4a5baa228af3c69b6cf extends Template
             <tr>
                 <th>Nom</th>
                 <th>Prix</th>
-                <th>Quantite</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
-            {% for produit in panier %}
-
+            {% if produits is not empty %}
+                {% for index, produit in produits %}
+                    <tr>
+                        <td>{{ produit.nom }}</td>
+                        <td>{{ produit.prix }} €</td>
+                        <td><a href=\"{{ path('panier_supprimer', {'index': index}) }}\" class=\"btn btn-danger\">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
                 <tr>
-                    <td>{{ produit.nom }}</td>
-                    <td>{{ produit.prix }}</td>
-                    <td>{{ produit.quantite }}</td>
+                    <td>Total</td>
+                    <td>{{ total }} €</td>
+                    <td></td>
                 </tr>
-            {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan=\"3\">Votre panier est vide</td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
+    <a class=\"btn btn-primary\">Confirmer la commande</a>
+</div> 
 
-    <a href=\"{{ path('confirmationPanier') }}\" class=\"btn btn-primary\">Confirmer la commande</a> -
 
-</div>
 
-{% endblock %}", "acme/panier.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\acme\\panier.html.twig");
+{% endblock %}
+", "acme/panier.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\acme\\panier.html.twig");
     }
 }

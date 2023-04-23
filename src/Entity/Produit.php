@@ -29,7 +29,7 @@ class Produit
     private $nom;
 
     /**
-     * @var string|null
+     * @var int|null
      *
      * @ORM\Column(name="Prix", type="decimal", precision=5, scale=2, nullable=true)
      */
@@ -50,12 +50,11 @@ class Produit
     private $photo;
 
     /**
-     * @var int|null
+     * @var int
      *
-     * @ORM\Column(name="Stock", type="int", length=5, nullable=false)
+     * @ORM\Column(name="Stock", type="integer", length=5, nullable=false)
      */
     private $stock;
-
 
 
     public function getIdProduit(): ?int
@@ -76,6 +75,7 @@ class Produit
         return $this;
     }
 
+
     public function getNom(): ?string
     {
         return $this->nom;
@@ -88,12 +88,12 @@ class Produit
         return $this;
     }
 
-    public function getPrix(): ?string
+    public function getPrix(): ?int
     {
         return $this->prix;
     }
 
-    public function setPrix(?string $prix): self
+    public function setPrix(?int $prix): self
     {
         $this->prix = $prix;
 
