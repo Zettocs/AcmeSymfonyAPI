@@ -455,13 +455,6 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\SecurityController"/>
       </call>
     </service>
-    <service id="App\Controller\ValidationController" class="App\Controller\ValidationController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\ValidationController"/>
-      </call>
-    </service>
     <service id="App\Form\InscriptionType" class="App\Form\InscriptionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -6500,9 +6493,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ValidationController" class="App\Controller\ValidationController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ValidationController" class="App\Controller\ValidationController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ValidationController" class="App\Controller\ValidationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\InscriptionType" class="App\Form\InscriptionType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\InscriptionType" class="App\Form\InscriptionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.gSv9zYw" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6874,13 +6864,7 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.aKM6MDa" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-      </argument>
-    </service>
-    <service id=".service_locator.EPtFuwp" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.3cRphcA" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccueilShopController::index" type="service_closure" id=".service_locator.6XxFdB9"/>
@@ -6888,7 +6872,6 @@
         <argument key="App\Controller\SecurityController::apiLogin" type="service_closure" id=".service_locator.RAsJug5"/>
         <argument key="App\Controller\SecurityController::inscription" type="service_closure" id=".service_locator.wU7gDXT"/>
         <argument key="App\Controller\SecurityController::modifierStock" type="service_closure" id=".service_locator.Vq5yBlp"/>
-        <argument key="App\Controller\ValidationController::valider" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -6898,7 +6881,6 @@
         <argument key="App\Controller\SecurityController:apiLogin" type="service_closure" id=".service_locator.RAsJug5"/>
         <argument key="App\Controller\SecurityController:inscription" type="service_closure" id=".service_locator.wU7gDXT"/>
         <argument key="App\Controller\SecurityController:modifierStock" type="service_closure" id=".service_locator.Vq5yBlp"/>
-        <argument key="App\Controller\ValidationController:valider" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -7462,12 +7444,6 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
-    <service id=".service_locator.jIxfAsi.App\Controller\ValidationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\ValidationController"/>
-      <argument>App\Controller\ValidationController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.jIxfAsi" method="withContext"/>
-    </service>
     <service id=".service_locator.wSgjnB6" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7732,12 +7708,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.EPtFuwp"/>
+      <argument type="service" id=".service_locator.3cRphcA"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.EPtFuwp"/>
+      <argument type="service" id=".service_locator.3cRphcA"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8713,7 +8689,7 @@
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.EPtFuwp"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.3cRphcA"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -8738,7 +8714,7 @@
     <service id=".service_locator.IULmO.j" alias=".service_locator.wU7gDXT"/>
     <service id=".service_locator.78YQzhD" alias=".service_locator.RAsJug5"/>
     <service id=".service_locator.k8sYntp" alias=".service_locator.Vq5yBlp"/>
-    <service id=".service_locator.pgZdF50" alias=".service_locator.EPtFuwp"/>
+    <service id=".service_locator.uBBUEpf" alias=".service_locator.3cRphcA"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
     <service id=".service_locator.ubszTVo" alias=".service_locator.xXUkHgG"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -8794,7 +8770,6 @@
     <service id=".service_locator.vcfjFmw" alias=".service_locator.wU7gDXT"/>
     <service id=".service_locator.V_7Sa48" alias=".service_locator.RAsJug5"/>
     <service id=".service_locator.uacLucP" alias=".service_locator.Vq5yBlp"/>
-    <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.eAaUVIw" alias=".service_locator.jIxfAsi"/>
     <service id=".service_locator.u6DWx23" alias=".service_locator.cXsfP3P"/>
     <service id=".service_locator.pFwChgS" alias=".service_locator.UkE3SaZ"/>
