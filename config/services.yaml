@@ -6,6 +6,11 @@
 parameters:
 
 services:
+
+  App\Service\CommandeService:
+    arguments:
+      $doctrine: '@doctrine.orm.entity_manager'
+
   App\Controller\Registry:
     public: true
   # default configuration for services in *this* file

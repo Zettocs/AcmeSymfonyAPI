@@ -23,12 +23,12 @@ return [
     'panier' => [[], ['_controller' => 'App\\Controller\\PanierController::index'], [], [['text', '/panier']], [], [], []],
     'valider_commande' => [[], ['_controller' => 'App\\Controller\\PanierController::validerCommande'], [], [['text', '/valider-commande']], [], [], []],
     'panier_supprimer' => [['index'], ['_controller' => 'App\\Controller\\PanierController::supprimer'], [], [['variable', '/', '[^/]++', 'index', true], ['text', '/panier/supprimer']], [], [], []],
+    'profil' => [[], ['_controller' => 'App\\Controller\\ProfilController::getUserHistoCommandes'], [], [['text', '/profil/historique']], [], [], []],
     'security_inscription' => [[], ['_controller' => 'App\\Controller\\SecurityController::inscription'], [], [['text', '/inscription']], [], [], []],
     'security_connexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/connexion']], [], [], []],
     'security_deconnexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/deconnexion']], [], [], []],
     'security_api_connexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::apiLogin'], [], [['text', '/api/connexion']], [], [], []],
     'security_api_deconnexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::apiLogout'], [], [['text', '/api/deconnexion']], [], [], []],
     'app_security_modifierstock' => [[], ['_controller' => 'App\\Controller\\SecurityController::modifierStock'], [], [['text', '/api/modifier-stock']], [], [], []],
-    'historique_commande' => [[], ['_controller' => 'App\\Controller\\SecurityController::getHistoCommandes'], [], [['text', '/api/historiquecommande']], [], [], []],
     'api_produits' => [[], ['_controller' => 'App\\Controller\\SecurityController::getProduits'], [], [['text', '/api/produits']], [], [], []],
 ];
