@@ -138,12 +138,10 @@
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter" type="string">0</parameter>
-      <parameter key="cookie_secure">auto</parameter>
       <parameter key="cookie_httponly">true</parameter>
-      <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:\EPSI Projet\Symfony\AcmeSymfonyAPI\var\cache\dev/sessions</parameter>
+    <parameter key="session.save_path">C:\EPSI Projet\Symfony\AcmeSymfonyAPI/var/sessions/dev</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
@@ -442,6 +440,7 @@
     <service id="App\Controller\PanierController" class="App\Controller\PanierController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\PanierController"/>
       </call>
@@ -455,8 +454,12 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\SecurityController"/>
       </call>
     </service>
+    <service id="App\EventSubscriber\HistoriqueCommandeEvent" class="App\EventSubscriber\HistoriqueCommandeEvent" autowire="true" autoconfigure="true"/>
     <service id="App\Form\InscriptionType" class="App\Form\InscriptionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Service\HistoriqueCommandeService" class="App\Service\HistoriqueCommandeService" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
@@ -3264,24 +3267,24 @@
     </service>
     <service id="session.storage.factory.native" class="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorageFactory">
       <argument>%session.storage.options%</argument>
-      <argument>null</argument>
+      <argument type="service" id="session.handler.native_file"/>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
           <argument>_sf2_meta</argument>
           <argument>0</argument>
         </service>
       </argument>
-      <argument>true</argument>
+      <argument>false</argument>
     </service>
     <service id="session.storage.factory.php_bridge" class="Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorageFactory">
-      <argument>null</argument>
+      <argument type="service" id="session.handler.native_file"/>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
           <argument>_sf2_meta</argument>
           <argument>0</argument>
         </service>
       </argument>
-      <argument>true</argument>
+      <argument>false</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
       <argument>C:\EPSI Projet\Symfony\AcmeSymfonyAPI\var\cache\dev/sessions</argument>
@@ -3296,7 +3299,7 @@
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler">
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-          <argument>C:\EPSI Projet\Symfony\AcmeSymfonyAPI\var\cache\dev/sessions</argument>
+          <argument>C:\EPSI Projet\Symfony\AcmeSymfonyAPI/var/sessions/dev</argument>
         </service>
       </argument>
     </service>
@@ -4686,7 +4689,7 @@
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument>{^https?://%%s$}i</argument>
-      <argument>{^https://%%s$}i</argument>
+      <argument>null</argument>
     </service>
     <service id="security.validator.user_password" class="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">
       <tag name="validator.constraint_validator" alias="security.validator.user_password"/>
@@ -6843,6 +6846,12 @@
         <argument key="produit" type="service_closure" id=".errored..service_locator.iGUm1r8.App\Entity\Produit"/>
       </argument>
     </service>
+    <service id=".service_locator.aKM6MDa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.wU7gDXT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6864,11 +6873,12 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.3cRphcA" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.cmy3rqD" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccueilShopController::index" type="service_closure" id=".service_locator.6XxFdB9"/>
         <argument key="App\Controller\AccueilShopController::produitDetail" type="service_closure" id=".service_locator.iGUm1r8"/>
+        <argument key="App\Controller\PanierController::validerCommande" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\SecurityController::apiLogin" type="service_closure" id=".service_locator.RAsJug5"/>
         <argument key="App\Controller\SecurityController::inscription" type="service_closure" id=".service_locator.wU7gDXT"/>
         <argument key="App\Controller\SecurityController::modifierStock" type="service_closure" id=".service_locator.Vq5yBlp"/>
@@ -6878,6 +6888,7 @@
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Controller\AccueilShopController:index" type="service_closure" id=".service_locator.6XxFdB9"/>
         <argument key="App\Controller\AccueilShopController:produitDetail" type="service_closure" id=".service_locator.iGUm1r8"/>
+        <argument key="App\Controller\PanierController:validerCommande" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\SecurityController:apiLogin" type="service_closure" id=".service_locator.RAsJug5"/>
         <argument key="App\Controller\SecurityController:inscription" type="service_closure" id=".service_locator.wU7gDXT"/>
         <argument key="App\Controller\SecurityController:modifierStock" type="service_closure" id=".service_locator.Vq5yBlp"/>
@@ -7708,12 +7719,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.3cRphcA"/>
+      <argument type="service" id=".service_locator.cmy3rqD"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.3cRphcA"/>
+      <argument type="service" id=".service_locator.cmy3rqD"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8689,7 +8700,7 @@
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.3cRphcA"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.cmy3rqD"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -8714,7 +8725,7 @@
     <service id=".service_locator.IULmO.j" alias=".service_locator.wU7gDXT"/>
     <service id=".service_locator.78YQzhD" alias=".service_locator.RAsJug5"/>
     <service id=".service_locator.k8sYntp" alias=".service_locator.Vq5yBlp"/>
-    <service id=".service_locator.uBBUEpf" alias=".service_locator.3cRphcA"/>
+    <service id=".service_locator.ap2tEPm" alias=".service_locator.cmy3rqD"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
     <service id=".service_locator.ubszTVo" alias=".service_locator.xXUkHgG"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -8767,6 +8778,7 @@
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
     <service id=".service_locator.3X5YS_K" alias=".service_locator.6XxFdB9"/>
     <service id=".service_locator.vYpYubR" alias=".service_locator.iGUm1r8"/>
+    <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.vcfjFmw" alias=".service_locator.wU7gDXT"/>
     <service id=".service_locator.V_7Sa48" alias=".service_locator.RAsJug5"/>
     <service id=".service_locator.uacLucP" alias=".service_locator.Vq5yBlp"/>

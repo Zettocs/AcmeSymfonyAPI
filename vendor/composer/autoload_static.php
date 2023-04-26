@@ -636,7 +636,6 @@ class ComposerStaticInitbbf5ac8228d347745059627d96c21723
         'App\\Controller\\ErrorController' => __DIR__ . '/../..' . '/src/Controller/ErrorController.php',
         'App\\Controller\\PanierController' => __DIR__ . '/../..' . '/src/Controller/PanierController.php',
         'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
-        'App\\Controller\\ValidationController' => __DIR__ . '/../..' . '/src/Controller/ValidationController.php',
         'App\\Entity\\Commande' => __DIR__ . '/../..' . '/src/Entity/Commande.php',
         'App\\Entity\\Compose' => __DIR__ . '/../..' . '/src/Entity/Compose.php',
         'App\\Entity\\DétailsCommande' => __DIR__ . '/../..' . '/src/Entity/DétailsCommande.php',

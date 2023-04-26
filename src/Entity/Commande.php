@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -17,24 +18,63 @@ class Commande
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commandes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateur", inversedBy="commandes")
+     * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="IdUser")
      */
-    private $user;
+    private $utilisateur;
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $dateCommande;
 
+
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Produit")
-     */
+    * @ORM\ManyToMany(targetEntity="App\Entity\Produit")
+    * @ORM\JoinTable(name="nom_de_la_table_de_jointure",
+    *      joinColumns={@ORM\JoinColumn(name="commande_id", referencedColumnName="id")},
+    *      inverseJoinColumns={@ORM\JoinColumn(name="produit_id", referencedColumnName="IdProduit_")}
+    *      )
+    */
     private $produits;
+
+    /**
+    * @ORM\Column(type="float")
+    */
+    private $prixTotal;
+
+    /**
+    * @ORM\OneToMany(targetEntity="App\Entity\LigneCommande", mappedBy="commande", cascade={"persist"})
+    */
+    private $lignesCommande;
 
     public function __construct()
     {
-        $this->produits = new ArrayCollection();
+        $this->lignesCommande = new ArrayCollection();
         $this->dateCommande = new \DateTime();
+        $this->prixTotal = 0;
+    }
+
+    public function addLigneCommande(LigneCommande $ligneCommande): self
+    {
+        if (!$this->lignesCommande->contains($ligneCommande)) {
+            $this->lignesCommande[] = $ligneCommande;
+            $ligneCommande->setCommande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLigneCommande(LigneCommande $ligneCommande): self
+    {
+        if ($this->lignesCommande->removeElement($ligneCommande)) {
+            // set the owning side to null (unless already changed)
+            if ($ligneCommande->getCommande() === $this) {
+                $ligneCommande->setCommande(null);
+            }
+        }
+
+        return $this;
     }
 
     // Getters et setters
@@ -44,14 +84,14 @@ class Commande
         return $this->id;
     }
 
-    public function getUser(): ?User
+    public function getUtilisateur(): ?Utilisateur
     {
-        return $this->user;
+        return $this->utilisateur;
     }
 
-    public function setUser(?User $user): self
+    public function setUtilisateur(?Utilisateur $utilisateur): self
     {
-        $this->user = $user;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
@@ -66,6 +106,18 @@ class Commande
         $this->dateCommande = $dateCommande;
 
         return $this;
+    }
+
+    public function setPrixTotal($total): self
+    {
+        $this->prixTotal = $total;
+
+        return $this;
+    }
+
+    public function getPrixTotal(): ?float
+    {
+        return $this->prixTotal;
     }
 
     /**

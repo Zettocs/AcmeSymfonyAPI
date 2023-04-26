@@ -12,7 +12,6 @@ return array(
     'App\\Controller\\ErrorController' => $baseDir . '/src/Controller/ErrorController.php',
     'App\\Controller\\PanierController' => $baseDir . '/src/Controller/PanierController.php',
     'App\\Controller\\SecurityController' => $baseDir . '/src/Controller/SecurityController.php',
-    'App\\Controller\\ValidationController' => $baseDir . '/src/Controller/ValidationController.php',
     'App\\Entity\\Commande' => $baseDir . '/src/Entity/Commande.php',
     'App\\Entity\\Compose' => $baseDir . '/src/Entity/Compose.php',
     'App\\Entity\\DétailsCommande' => $baseDir . '/src/Entity/DétailsCommande.php',

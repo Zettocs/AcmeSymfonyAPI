@@ -21,6 +21,7 @@ return [
     'produit_detail' => [['id'], ['_controller' => 'App\\Controller\\AccueilShopController::produitDetail'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/produit']], [], [], []],
     'app_homepage' => [[], ['_controller' => 'App\\Controller\\AcmeController::homepage'], [], [['text', '/']], [], [], []],
     'panier' => [[], ['_controller' => 'App\\Controller\\PanierController::index'], [], [['text', '/panier']], [], [], []],
+    'valider_commande' => [[], ['_controller' => 'App\\Controller\\PanierController::validerCommande'], [], [['text', '/valider-commande']], [], [], []],
     'panier_supprimer' => [['index'], ['_controller' => 'App\\Controller\\PanierController::supprimer'], [], [['variable', '/', '[^/]++', 'index', true], ['text', '/panier/supprimer']], [], [], []],
     'security_inscription' => [[], ['_controller' => 'App\\Controller\\SecurityController::inscription'], [], [['text', '/inscription']], [], [], []],
     'security_connexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/connexion']], [], [], []],
@@ -28,5 +29,6 @@ return [
     'security_api_connexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::apiLogin'], [], [['text', '/api/connexion']], [], [], []],
     'security_api_deconnexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::apiLogout'], [], [['text', '/api/deconnexion']], [], [], []],
     'app_security_modifierstock' => [[], ['_controller' => 'App\\Controller\\SecurityController::modifierStock'], [], [['text', '/api/modifier-stock']], [], [], []],
+    'historique_commande' => [[], ['_controller' => 'App\\Controller\\SecurityController::getHistoCommandes'], [], [['text', '/api/historiquecommande']], [], [], []],
     'api_produits' => [[], ['_controller' => 'App\\Controller\\SecurityController::getProduits'], [], [['text', '/api/produits']], [], [], []],
 ];

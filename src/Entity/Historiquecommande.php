@@ -1,39 +1,74 @@
 <?php
-namespace App\Entity;
 
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Historiquecommande
- *
- * @ORM\Table(name="historiquecommande")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\HistoriqueCommandeRepository")
  */
-class Historiquecommande
+class HistoriqueCommande
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idCommande", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
-    private $idcommande;
+    private $id;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="PrixTotal", type="decimal", precision=4, scale=2, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $prixtotal;
+    private $command;
 
     /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="DateCommande", type="date", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $datecommande;
+    private $arguments;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCommand(): ?string
+    {
+        return $this->command;
+    }
+
+    public function setCommand(string $command): self
+    {
+        $this->command = $command;
+
+        return $this;
+    }
+
+    public function getArguments(): ?string
+    {
+        return $this->arguments;
+    }
+
+    public function setArguments(?string $arguments): self
+    {
+        $this->arguments = $arguments;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
 }

@@ -182,7 +182,10 @@ class __TwigTemplate_141e84890b0da4a5baa228af3c69b6cf extends Template
         // line 71
         echo "        </tbody>
     </table>
-    <a class=\"btn btn-primary\">Confirmer la commande</a>
+    <a href=\"";
+        // line 73
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("valider_commande");
+        echo "\" class=\"btn btn-primary\">Confirmer la commande</a>
 </div> 
 
 
@@ -208,7 +211,7 @@ class __TwigTemplate_141e84890b0da4a5baa228af3c69b6cf extends Template
 
     public function getDebugInfo()
     {
-        return array (  183 => 71,  177 => 67,  170 => 63,  166 => 61,  157 => 58,  153 => 57,  149 => 56,  146 => 55,  141 => 54,  139 => 53,  125 => 41,  115 => 40,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  187 => 73,  183 => 71,  177 => 67,  170 => 63,  166 => 61,  157 => 58,  153 => 57,  149 => 56,  146 => 55,  141 => 54,  139 => 53,  125 => 41,  115 => 40,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -285,7 +288,7 @@ class __TwigTemplate_141e84890b0da4a5baa228af3c69b6cf extends Template
             {% endif %}
         </tbody>
     </table>
-    <a class=\"btn btn-primary\">Confirmer la commande</a>
+    <a href=\"{{ path('valider_commande') }}\" class=\"btn btn-primary\">Confirmer la commande</a>
 </div> 
 
 
