@@ -27,7 +27,7 @@ class ProfilController extends AbstractController
 
 
     /**
-    * @Route("/profil", name="profil")
+    * @Route("/profil/", name="profil")
     */
     public function profil(EntityManagerInterface $entityManager)
     {
@@ -46,7 +46,7 @@ class ProfilController extends AbstractController
     }
 
     /**
-    * @Route("/profil/historique", name="profil")
+    * @Route("/profil/historique", name="historique")
     */
     public function getUserHistoCommandes(): Response
     {

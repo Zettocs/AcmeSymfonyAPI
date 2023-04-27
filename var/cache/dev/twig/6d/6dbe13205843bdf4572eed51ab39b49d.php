@@ -241,9 +241,15 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 <a class=\"boutons_nav\" href=\"";
             // line 145
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil_shop");
-            echo "\">A c c u e i l</a></li></br></li><li><div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br><li><a class=\"boutons_nav\" href=\"";
+            echo "\">A c c u e i l</a></li></br></li>
+<li><div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br>
+<li><a class=\"boutons_nav\" href=\"";
+            // line 147
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier");
-            echo "\">P a n i e r</a></li></br></li><li><div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br><li><a class=\"boutons_nav\" href=\"";
+            echo "\">P a n i e rrrr</a></li></br></li><li>
+<div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br>
+<li><a class=\"boutons_nav\" href=\"";
+            // line 149
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_deconnexion");
             echo "\">D é c o n n e x i o n</a></li>";
         }
@@ -270,7 +276,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 
     public function getDebugInfo()
     {
-        return array (  243 => 145,  237 => 144,  224 => 134,  212 => 125,  209 => 124,  207 => 123,  201 => 120,  189 => 110,  179 => 103,  169 => 96,  166 => 95,  155 => 87,  144 => 79,  141 => 78,  139 => 77,  135 => 75,  127 => 73,  118 => 70,  116 => 69,  64 => 20,  43 => 1,);
+        return array (  253 => 149,  248 => 147,  243 => 145,  237 => 144,  224 => 134,  212 => 125,  209 => 124,  207 => 123,  201 => 120,  189 => 110,  179 => 103,  169 => 96,  166 => 95,  155 => 87,  144 => 79,  141 => 78,  139 => 77,  135 => 75,  127 => 73,  118 => 70,  116 => 69,  64 => 20,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -419,6 +425,10 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t</body>
 </body></li><li>
 <a class=\"boutons_nav\" href=\"{{ path('security_inscription') }}\">I n s c r i p t i o n</a></li>{% else %}<li>
-<a class=\"boutons_nav\" href=\"{{ path('accueil_shop') }}\">A c c u e i l</a></li></br></li><li><div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br><li><a class=\"boutons_nav\" href=\"{{ path('panier') }}\">P a n i e r</a></li></br></li><li><div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br><li><a class=\"boutons_nav\" href=\"{{ path('security_deconnexion') }}\">D é c o n n e x i o n</a></li>{% endif %}</body> </ul></div></body></div></div></div></body></body></div><script src=\"{{ asset ('js/navbar.js') }}\"></script></body>", "_layout/navbar.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\_layout\\navbar.html.twig");
+<a class=\"boutons_nav\" href=\"{{ path('accueil_shop') }}\">A c c u e i l</a></li></br></li>
+<li><div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br>
+<li><a class=\"boutons_nav\" href=\"{{ path('panier') }}\">P a n i e rrrr</a></li></br></li><li>
+<div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br>
+<li><a class=\"boutons_nav\" href=\"{{ path('security_deconnexion') }}\">D é c o n n e x i o n</a></li>{% endif %}</body> </ul></div></body></div></div></div></body></body></div><script src=\"{{ asset ('js/navbar.js') }}\"></script></body>", "_layout/navbar.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\_layout\\navbar.html.twig");
     }
 }
