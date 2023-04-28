@@ -31,6 +31,7 @@ return [
         '/api/deconnexion' => [[['_route' => 'security_api_deconnexion', '_controller' => 'App\\Controller\\SecurityController::apiLogout'], null, ['POST' => 0], null, false, false, null]],
         '/api/modifier-stock' => [[['_route' => 'app_security_modifierstock', '_controller' => 'App\\Controller\\SecurityController::modifierStock'], null, ['POST' => 0], null, false, false, null]],
         '/api/historique_commande' => [[['_route' => 'app_security_getallcommandes', '_controller' => 'App\\Controller\\SecurityController::getAllCommandes'], null, ['GET' => 0], null, false, false, null]],
+        '/api/utilisateur' => [[['_route' => 'user_name', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], null, ['GET' => 0], null, false, false, null]],
         '/api/produits' => [[['_route' => 'api_produits', '_controller' => 'App\\Controller\\SecurityController::getProduits'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
@@ -54,7 +55,6 @@ return [
                     .'|roduit/([^/]++)(*:189)'
                     .'|anier/supprimer/([^/]++)(*:221)'
                 .')'
-                .'|/api/utilisateur/([^/]++)(*:255)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -66,9 +66,8 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         189 => [[['_route' => 'produit_detail', '_controller' => 'App\\Controller\\AccueilShopController::produitDetail'], ['id'], null, null, false, true, null]],
-        221 => [[['_route' => 'panier_supprimer', '_controller' => 'App\\Controller\\PanierController::supprimer'], ['index'], null, null, false, true, null]],
-        255 => [
-            [['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null],
+        221 => [
+            [['_route' => 'panier_supprimer', '_controller' => 'App\\Controller\\PanierController::supprimer'], ['index'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

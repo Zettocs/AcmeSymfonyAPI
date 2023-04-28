@@ -33,6 +33,6 @@ return [
     'security_api_deconnexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::apiLogout'], [], [['text', '/api/deconnexion']], [], [], []],
     'app_security_modifierstock' => [[], ['_controller' => 'App\\Controller\\SecurityController::modifierStock'], [], [['text', '/api/modifier-stock']], [], [], []],
     'app_security_getallcommandes' => [[], ['_controller' => 'App\\Controller\\SecurityController::getAllCommandes'], [], [['text', '/api/historique_commande']], [], [], []],
-    'app_security_getutilisateur' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/utilisateur']], [], [], []],
+    'user_name' => [[], ['_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], [], [['text', '/api/utilisateur']], [], [], []],
     'api_produits' => [[], ['_controller' => 'App\\Controller\\SecurityController::getProduits'], [], [['text', '/api/produits']], [], [], []],
 ];

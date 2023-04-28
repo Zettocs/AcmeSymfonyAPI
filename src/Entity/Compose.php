@@ -33,3 +33,15 @@ class Compose
 
 
 }
+
+
+$commandesAvecUtilisateur = [];
+
+foreach ($commandes as $commande) {
+    $commandesArray[] = [
+        'id' => $commande->getId(),
+        'date_commande' => $commande->getDateCommande(),
+        'utilisateur_id' => $commande->getUtilisateur(),
+        'prix_total' => $commande->getPrixTotal(),
+    ];
+}

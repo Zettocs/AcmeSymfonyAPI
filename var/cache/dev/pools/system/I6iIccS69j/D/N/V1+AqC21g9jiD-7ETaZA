@@ -8,7 +8,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/api/utilisateur/{id}',
+                '/api/utilisateur',
             ],
             'methods' => [
                 [
@@ -19,7 +19,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 [],
             ],
             'name' => [
-                null,
+                'user_name',
             ],
             'requirements' => [
                 [],

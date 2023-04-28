@@ -204,7 +204,7 @@ public function getAllCommandes(): JsonResponse
         $commandesArray[] = [
             'id' => $commande->getId(),
             'date_commande' => $commande->getDateCommande(),
-            'utilisateur_id' => $commande->getUtilisateur(),
+            'utilisateur_id' => $commande->getUtilisateur()->getIdUser(),
             'prix_total' => $commande->getPrixTotal(),
         ];
     }
@@ -216,17 +216,17 @@ public function getAllCommandes(): JsonResponse
 /**
  *@Route("/api/utilisateur/{id}", methods={"GET"})
  */
-    public function getUtilisateur($id): JsonResponse
-    {
-    $utilisateur = $this->entityManager->getRepository(\App\Entity\Utilisateur::class)->find($id);
+public function getUtilisateur($id): JsonResponse
+{
+$utilisateur = $this->entityManager->getRepository(\App\Entity\Utilisateur::class)->find($id);
 
-    $utilisateurArray = [
-    'nom' => $utilisateur->getFirstname(),
-    'email' => $utilisateur->getEmail(),
-    ];
+$utilisateurArray = [
+'nom' => $utilisateur->getFirstname(),
+'email' => $utilisateur->getEmail(),
+];
 
-    return new JsonResponse($utilisateurArray);
-    }   
+return new JsonResponse($utilisateurArray);
+}  
 
 
 
