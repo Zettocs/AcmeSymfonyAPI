@@ -2,11 +2,14 @@
 
 namespace App\Controller; 
 
+use App\Entity\Utilisateur;
+use App\Form\UtilisateurType;
 use App\Service\CommandeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
@@ -39,6 +42,8 @@ class ProfilController extends AbstractController
             throw $this->createNotFoundException('Vous devez être connecté pour accéder à cette page');
         }
 
+        
+
         // Afficher les informations de l'utilisateur
         return $this->render('profil/profil.html.twig', [
             'user' => $user
@@ -68,6 +73,30 @@ class ProfilController extends AbstractController
 
 
     }
+
+        /**
+    * @Route("/profil/modifier", name="modifier_profil")
+    */
+    public function modifierprofil(Request $request)
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(UtilisateurType::class, $user);
+    
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash('success', 'Your profile has been updated!');
+            return $this->redirectToRoute('profile');
+        }
+    
+        return $this->render('profil/modifier_profil.html.twig', [
+            'form' => $form->createView(),
+        ]);
         
         
+    }
+
 }

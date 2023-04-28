@@ -76,7 +76,7 @@ class PanierController extends AbstractController
         // Ajouter les articles dans la commande
         foreach ($panier as $article) {
             $produit = $this->entityManager->getRepository(\App\Entity\Produit::class)->findOneBy(['nom' => $article['nom']]);
-            $ligneCommande = new LigneCommande(); // Utiliser LigneCommande au lieu de CommandeArticle
+            $ligneCommande = new LigneCommande(); // Utiliser LigneCommande
             $ligneCommande->setCommande($commande);
             $ligneCommande->setProduit($produit); // Utiliser l'article directement
             $ligneCommande->setPrix($article['prix']);

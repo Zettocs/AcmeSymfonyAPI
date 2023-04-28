@@ -190,6 +190,45 @@ public function modifierStock(Request $request, EntityManagerInterface $entityMa
 }
 
 
+/**
+ * @Route("/api/historique_commande", methods={"GET"})
+ */
+
+
+public function getAllCommandes(): JsonResponse
+{
+    $commandes = $this->entityManager->getRepository(\App\Entity\Commande::class)->findAll();
+    
+    $commandesArray = [];
+    foreach ($commandes as $commande) {
+        $commandesArray[] = [
+            'id' => $commande->getId(),
+            'date_commande' => $commande->getDateCommande(),
+            'utilisateur_id' => $commande->getUtilisateur(),
+            'prix_total' => $commande->getPrixTotal(),
+        ];
+    }
+    
+    return new JsonResponse($commandesArray);
+}
+
+
+/**
+ *@Route("/api/utilisateur/{id}", methods={"GET"})
+ */
+    public function getUtilisateur($id): JsonResponse
+    {
+    $utilisateur = $this->entityManager->getRepository(\App\Entity\Utilisateur::class)->find($id);
+
+    $utilisateurArray = [
+    'nom' => $utilisateur->getFirstname(),
+    'email' => $utilisateur->getEmail(),
+    ];
+
+    return new JsonResponse($utilisateurArray);
+    }   
+
+
 
 
     
