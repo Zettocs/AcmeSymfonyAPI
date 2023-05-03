@@ -74,7 +74,7 @@ class ProfilController extends AbstractController
 
     }
 
-        /**
+    /**
     * @Route("/profil/modifier", name="modifier_profil")
     */
     public function modifierprofil(Request $request)

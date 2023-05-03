@@ -2,9 +2,15 @@ controllers:
   resource: ../src/Controller/
   type: annotation
 
-
 api_produits:
-    path: '/api/produits'
-    controller: 'App\Controller\SecurityController::getProduits'
-    methods: ['GET']
+  path: '/api/produits'
+  controller: 'App\Controller\SecurityController::getProduits'
+  methods: ['GET']
+
+page_admin:
+  path: '/page-admin'
+  controller: 'App\Controller\AdminController::pageAdmin'
+  methods: ['GET']
+  requirements:
+    _security: 'is_granted("ROLE_ADMIN")'
 

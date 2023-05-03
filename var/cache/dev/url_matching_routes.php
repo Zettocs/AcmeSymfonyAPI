@@ -19,6 +19,7 @@ return [
             [['_route' => 'app_homepage', '_controller' => 'App\\Controller\\AcmeController::homepage'], null, null, null, false, false, null],
         ],
         '/shop' => [[['_route' => 'accueil_shop', '_controller' => 'App\\Controller\\AccueilShopController::index'], null, null, null, false, false, null]],
+        '/modifier-stock-admin}' => [[['_route' => 'modifier_stock_admin', '_controller' => 'App\\Controller\\AdminController::modifierStockAdmin'], null, null, null, false, false, null]],
         '/panier' => [[['_route' => 'panier', '_controller' => 'App\\Controller\\PanierController::index'], null, null, null, false, false, null]],
         '/valider-commande' => [[['_route' => 'valider_commande', '_controller' => 'App\\Controller\\PanierController::validerCommande'], null, null, null, false, false, null]],
         '/profil' => [[['_route' => 'profil', '_controller' => 'App\\Controller\\ProfilController::profil'], null, null, null, true, false, null]],
@@ -27,12 +28,12 @@ return [
         '/inscription' => [[['_route' => 'security_inscription', '_controller' => 'App\\Controller\\SecurityController::inscription'], null, null, null, false, false, null]],
         '/connexion' => [[['_route' => 'security_connexion', '_controller' => 'App\\Controller\\SecurityController::login'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/deconnexion' => [[['_route' => 'security_deconnexion', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/api/connexion' => [[['_route' => 'security_api_connexion', '_controller' => 'App\\Controller\\SecurityController::apiLogin'], null, ['POST' => 0], null, false, false, null]],
+        '/api/adminconnexion' => [[['_route' => 'security_api_connexion', '_controller' => 'App\\Controller\\SecurityController::apiAdminLogin'], null, ['POST' => 0], null, false, false, null]],
         '/api/deconnexion' => [[['_route' => 'security_api_deconnexion', '_controller' => 'App\\Controller\\SecurityController::apiLogout'], null, ['POST' => 0], null, false, false, null]],
-        '/api/modifier-stock' => [[['_route' => 'app_security_modifierstock', '_controller' => 'App\\Controller\\SecurityController::modifierStock'], null, ['POST' => 0], null, false, false, null]],
+        '/api/modifier-stock' => [[['_route' => 'modifier_stock', '_controller' => 'App\\Controller\\SecurityController::modifierStock'], null, ['POST' => 0], null, false, false, null]],
         '/api/historique_commande' => [[['_route' => 'app_security_getallcommandes', '_controller' => 'App\\Controller\\SecurityController::getAllCommandes'], null, ['GET' => 0], null, false, false, null]],
-        '/api/utilisateur' => [[['_route' => 'user_name', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], null, ['GET' => 0], null, false, false, null]],
         '/api/produits' => [[['_route' => 'api_produits', '_controller' => 'App\\Controller\\SecurityController::getProduits'], null, ['GET' => 0], null, false, false, null]],
+        '/page-admin' => [[['_route' => 'page_admin', '_controller' => 'App\\Controller\\AdminController::pageAdmin'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -52,9 +53,13 @@ return [
                     .')'
                 .')'
                 .'|/p(?'
-                    .'|roduit/([^/]++)(*:189)'
-                    .'|anier/supprimer/([^/]++)(*:221)'
+                    .'|roduit(?'
+                        .'|/([^/]++)(*:192)'
+                        .'|\\-admin/([^/]++)(*:216)'
+                    .')'
+                    .'|anier/supprimer/([^/]++)(*:249)'
                 .')'
+                .'|/api/utilisateur/([^/]++)(*:283)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -65,9 +70,11 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        189 => [[['_route' => 'produit_detail', '_controller' => 'App\\Controller\\AccueilShopController::produitDetail'], ['id'], null, null, false, true, null]],
-        221 => [
-            [['_route' => 'panier_supprimer', '_controller' => 'App\\Controller\\PanierController::supprimer'], ['index'], null, null, false, true, null],
+        192 => [[['_route' => 'produit_detail', '_controller' => 'App\\Controller\\AccueilShopController::produitDetail'], ['id'], null, null, false, true, null]],
+        216 => [[['_route' => 'produit_admin_detail', '_controller' => 'App\\Controller\\AdminController::produitAdminDetail'], ['id'], null, null, false, true, null]],
+        249 => [[['_route' => 'panier_supprimer', '_controller' => 'App\\Controller\\PanierController::supprimer'], ['index'], null, null, false, true, null]],
+        283 => [
+            [['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

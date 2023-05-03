@@ -5,6 +5,10 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * Utilisateur
@@ -44,9 +48,6 @@ class Utilisateur implements PasswordAuthenticatedUserInterface, UserInterface
      */
     private $firstname;
 
-
-
-
     /**
      * @var string|null
      *
@@ -79,6 +80,17 @@ class Utilisateur implements PasswordAuthenticatedUserInterface, UserInterface
      * @ORM\Column(name="Pays", type="string", length=150, nullable=true)
      */
     private $pays;
+
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    public function __construct()
+    {
+        $this->roles = ['ROLE_USER'];
+    }
 
     public function getIdUser(): ?int
     {
@@ -129,9 +141,6 @@ class Utilisateur implements PasswordAuthenticatedUserInterface, UserInterface
         return $this;
     }
 
-
-
-
     public function getEmail(): ?string
     {
         return $this->email;
@@ -177,8 +186,45 @@ class Utilisateur implements PasswordAuthenticatedUserInterface, UserInterface
 
     public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        return $this->roles;
     }
+
+        public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function serializeRoles(): string
+    {
+        $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
+        return $serializer->serialize($this->roles, 'json', [AbstractNormalizer::IGNORED_ATTRIBUTES => ['id']]);
+    }
+    
+    public function deserializeRoles(string $serializedRoles): array
+    {
+        $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
+        return $serializer->deserialize($serializedRoles, 'array', 'json');
+    }
+    
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function prePersistOrUpdate()
+    {
+        $this->roles = $this->serializeRoles();
+    }
+    
+    /**
+     * @ORM\PostLoad()
+     */
+    public function postLoad()
+    {
+        $this->roles = $this->deserializeRoles($this->roles);
+    }    
+
     public function getUserIdentifier(): string
     {
         return $this->email;
