@@ -19,7 +19,7 @@ return [
             [['_route' => 'app_homepage', '_controller' => 'App\\Controller\\AcmeController::homepage'], null, null, null, false, false, null],
         ],
         '/shop' => [[['_route' => 'accueil_shop', '_controller' => 'App\\Controller\\AccueilShopController::index'], null, null, null, false, false, null]],
-        '/modifier-stock-admin}' => [[['_route' => 'modifier_stock_admin', '_controller' => 'App\\Controller\\AdminController::modifierStockAdmin'], null, null, null, false, false, null]],
+        '/modifier-stock-admin' => [[['_route' => 'modifier_stock_admin', '_controller' => 'App\\Controller\\AdminController::modifierStockAdmin'], null, null, null, false, false, null]],
         '/panier' => [[['_route' => 'panier', '_controller' => 'App\\Controller\\PanierController::index'], null, null, null, false, false, null]],
         '/valider-commande' => [[['_route' => 'valider_commande', '_controller' => 'App\\Controller\\PanierController::validerCommande'], null, null, null, false, false, null]],
         '/profil' => [[['_route' => 'profil', '_controller' => 'App\\Controller\\ProfilController::profil'], null, null, null, true, false, null]],
@@ -55,11 +55,14 @@ return [
                 .'|/p(?'
                     .'|roduit(?'
                         .'|/([^/]++)(*:192)'
-                        .'|\\-admin/([^/]++)(*:216)'
+                        .'|\\-admin/([^/]++)(?'
+                            .'|(*:219)'
+                            .'|/supprimer(*:237)'
+                        .')'
                     .')'
-                    .'|anier/supprimer/([^/]++)(*:249)'
+                    .'|anier/supprimer/([^/]++)(*:271)'
                 .')'
-                .'|/api/utilisateur/([^/]++)(*:283)'
+                .'|/api/utilisateur/([^/]++)(*:305)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -71,9 +74,10 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         192 => [[['_route' => 'produit_detail', '_controller' => 'App\\Controller\\AccueilShopController::produitDetail'], ['id'], null, null, false, true, null]],
-        216 => [[['_route' => 'produit_admin_detail', '_controller' => 'App\\Controller\\AdminController::produitAdminDetail'], ['id'], null, null, false, true, null]],
-        249 => [[['_route' => 'panier_supprimer', '_controller' => 'App\\Controller\\PanierController::supprimer'], ['index'], null, null, false, true, null]],
-        283 => [
+        219 => [[['_route' => 'produit_admin_detail', '_controller' => 'App\\Controller\\AdminController::produitAdminDetail'], ['id'], null, null, false, true, null]],
+        237 => [[['_route' => 'produit_admin_supprimer', '_controller' => 'App\\Controller\\AdminController::produitAdminSupprimer'], ['id'], null, null, false, false, null]],
+        271 => [[['_route' => 'panier_supprimer', '_controller' => 'App\\Controller\\PanierController::supprimer'], ['index'], null, null, false, true, null]],
+        305 => [
             [['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

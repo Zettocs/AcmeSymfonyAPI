@@ -112,4 +112,26 @@ class AdminController extends AbstractController
     
         return $this->render('admin/admin_confirmation.html.twig');
     }
+
+    /**
+     * @Route("/produit-admin/{id}/supprimer", name="produit_admin_supprimer")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function produitAdminSupprimer(Produit $produit, Request $request, EntityManagerInterface $em)
+    {
+
+        
+        // Vérifier si le formulaire a été soumis
+        if ($request->isMethod('POST') && $request->request->has('produit_admin_supprimer')) {
+            // Supprimer le produit de la base de données
+            $em->remove($produit);
+            $em->flush();
+            $this->addFlash('success', 'Le produit a été supprimé avec succès');
+            return $this->redirectToRoute('page_admin');
+        }
+
+        return $this->render('admin/admin_confirmation_suppression.html.twig', [
+            'produit' => $produit,
+        ]);
+    }
 }

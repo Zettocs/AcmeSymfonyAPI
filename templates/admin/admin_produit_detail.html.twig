@@ -131,15 +131,13 @@
     </button>
 </form>
 
-<form method="POST" action="{{ path('produit_admin_supprimer') }}">
-	<input type="hidden" name="idProduit" value="{{ produit.idProduit }}">
+<form method="POST" action="{{ path('produit_admin_supprimer', {'id': produit.idProduit}) }}">
+    <input type="hidden" name="idProduit" value="{{ produit.idProduit }}">
     <input type="hidden" name="nom" value="{{ produit.nom }}">
     <input type="hidden" name="prix" value="{{ produit.prix }}">
-	<input name="quantite">
     <button type="submit" class="afficher-article" name="produit_admin_supprimer">
-        Modifier stock
+        Supprimer produit
     </button>
-</form>
 
 {% if message is defined %}
 	<div class="message">{{ message }}</div>
@@ -148,3 +146,5 @@
 </div>
 
 {% endblock %}
+
+

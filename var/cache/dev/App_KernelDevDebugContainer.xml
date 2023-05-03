@@ -6890,6 +6890,13 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
+    <service id=".service_locator._TnEEkc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="produit" type="service_closure" id=".errored..service_locator._TnEEkc.App\Entity\Produit"/>
+      </argument>
+    </service>
     <service id=".service_locator.aKM6MDa" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6918,7 +6925,7 @@
         <argument key="jwtManager" type="service_closure" id="lexik_jwt_authentication.jwt_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.AVYNy3M" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.WvS_tII" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccueilShopController::index" type="service_closure" id=".service_locator.hvKzUl4"/>
@@ -6926,6 +6933,7 @@
         <argument key="App\Controller\AdminController::modifierStockAdmin" type="service_closure" id=".service_locator.Vq5yBlp"/>
         <argument key="App\Controller\AdminController::pageAdmin" type="service_closure" id=".service_locator.hvKzUl4"/>
         <argument key="App\Controller\AdminController::produitAdminDetail" type="service_closure" id=".service_locator.iGUm1r8"/>
+        <argument key="App\Controller\AdminController::produitAdminSupprimer" type="service_closure" id=".service_locator._TnEEkc"/>
         <argument key="App\Controller\PanierController::validerCommande" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\ProfilController::profil" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\SecurityController::apiAdminLogin" type="service_closure" id=".service_locator.diAfL4J"/>
@@ -6941,6 +6949,7 @@
         <argument key="App\Controller\AdminController:modifierStockAdmin" type="service_closure" id=".service_locator.Vq5yBlp"/>
         <argument key="App\Controller\AdminController:pageAdmin" type="service_closure" id=".service_locator.hvKzUl4"/>
         <argument key="App\Controller\AdminController:produitAdminDetail" type="service_closure" id=".service_locator.iGUm1r8"/>
+        <argument key="App\Controller\AdminController:produitAdminSupprimer" type="service_closure" id=".service_locator._TnEEkc"/>
         <argument key="App\Controller\PanierController:validerCommande" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\ProfilController:profil" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\SecurityController:apiAdminLogin" type="service_closure" id=".service_locator.diAfL4J"/>
@@ -7787,12 +7796,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.AVYNy3M"/>
+      <argument type="service" id=".service_locator.WvS_tII"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.AVYNy3M"/>
+      <argument type="service" id=".service_locator.WvS_tII"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7813,6 +7822,7 @@
     </service>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.iGUm1r8.App\Entity\Produit" class="App\Entity\Produit"/>
+    <service id=".errored..service_locator._TnEEkc.App\Entity\Produit" class="App\Entity\Produit"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8768,7 +8778,7 @@
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.AVYNy3M"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.WvS_tII"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -8792,10 +8802,11 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.6XxFdB9" alias=".service_locator.hvKzUl4"/>
     <service id=".service_locator.k8sYntp" alias=".service_locator.Vq5yBlp"/>
+    <service id=".service_locator.4xAPIG." alias=".service_locator._TnEEkc"/>
     <service id=".service_locator.IULmO.j" alias=".service_locator.wU7gDXT"/>
     <service id=".service_locator.78YQzhD" alias=".service_locator.RAsJug5"/>
     <service id=".service_locator.LMQ4ubL" alias=".service_locator.diAfL4J"/>
-    <service id=".service_locator._fUdtiI" alias=".service_locator.AVYNy3M"/>
+    <service id=".service_locator.bXJxfkD" alias=".service_locator.WvS_tII"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
     <service id=".service_locator.hmJHAgD" alias=".service_locator.SLWCqDa"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -8849,6 +8860,7 @@
     <service id=".service_locator.vYpYubR" alias=".service_locator.iGUm1r8"/>
     <service id=".service_locator.3X5YS_K" alias=".service_locator.hvKzUl4"/>
     <service id=".service_locator.uacLucP" alias=".service_locator.Vq5yBlp"/>
+    <service id=".service_locator.CU2KVX6" alias=".service_locator._TnEEkc"/>
     <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.vcfjFmw" alias=".service_locator.wU7gDXT"/>
     <service id=".service_locator.V_7Sa48" alias=".service_locator.RAsJug5"/>

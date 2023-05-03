@@ -221,17 +221,36 @@ class __TwigTemplate_847cba7e97b8ae7bbc51e030d6a2e90c extends Template
     </button>
 </form>
 
+<form method=\"POST\" action=\"";
+        // line 134
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_admin_supprimer", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 134, $this->source); })()), "idProduit", [], "any", false, false, false, 134)]), "html", null, true);
+        echo "\">
+    <input type=\"hidden\" name=\"idProduit\" value=\"";
+        // line 135
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 135, $this->source); })()), "idProduit", [], "any", false, false, false, 135), "html", null, true);
+        echo "\">
+    <input type=\"hidden\" name=\"nom\" value=\"";
+        // line 136
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 136, $this->source); })()), "nom", [], "any", false, false, false, 136), "html", null, true);
+        echo "\">
+    <input type=\"hidden\" name=\"prix\" value=\"";
+        // line 137
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 137, $this->source); })()), "prix", [], "any", false, false, false, 137), "html", null, true);
+        echo "\">
+    <button type=\"submit\" class=\"afficher-article\" name=\"produit_admin_supprimer\">
+        Supprimer produit
+    </button>
 
 ";
-        // line 135
+        // line 142
         if (array_key_exists("message", $context)) {
-            // line 136
+            // line 143
             echo "\t<div class=\"message\">";
-            echo twig_escape_filter($this->env, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 136, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 143, $this->source); })()), "html", null, true);
             echo "</div>
 ";
         }
-        // line 138
+        // line 145
         echo "
 </div>
 
@@ -256,7 +275,7 @@ class __TwigTemplate_847cba7e97b8ae7bbc51e030d6a2e90c extends Template
 
     public function getDebugInfo()
     {
-        return array (  235 => 138,  229 => 136,  227 => 135,  216 => 127,  212 => 126,  208 => 125,  204 => 124,  199 => 122,  194 => 120,  188 => 117,  180 => 114,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  254 => 145,  248 => 143,  246 => 142,  238 => 137,  234 => 136,  230 => 135,  226 => 134,  216 => 127,  212 => 126,  208 => 125,  204 => 124,  199 => 122,  194 => 120,  188 => 117,  180 => 114,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -394,6 +413,13 @@ class __TwigTemplate_847cba7e97b8ae7bbc51e030d6a2e90c extends Template
     </button>
 </form>
 
+<form method=\"POST\" action=\"{{ path('produit_admin_supprimer', {'id': produit.idProduit}) }}\">
+    <input type=\"hidden\" name=\"idProduit\" value=\"{{ produit.idProduit }}\">
+    <input type=\"hidden\" name=\"nom\" value=\"{{ produit.nom }}\">
+    <input type=\"hidden\" name=\"prix\" value=\"{{ produit.prix }}\">
+    <button type=\"submit\" class=\"afficher-article\" name=\"produit_admin_supprimer\">
+        Supprimer produit
+    </button>
 
 {% if message is defined %}
 \t<div class=\"message\">{{ message }}</div>
@@ -402,6 +428,8 @@ class __TwigTemplate_847cba7e97b8ae7bbc51e030d6a2e90c extends Template
 </div>
 
 {% endblock %}
+
+
 ", "admin/admin_produit_detail.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\admin\\admin_produit_detail.html.twig");
     }
 }
