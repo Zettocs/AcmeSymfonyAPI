@@ -17,9 +17,9 @@ class Produit
      *
      * @ORM\Column(name="IdProduit_", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idproduit;
+    private $idproduit = null;
 
     /**
      * @var string|null
@@ -60,6 +60,13 @@ class Produit
     public function getIdProduit(): ?int
     {
         return $this->idproduit;
+    }
+
+    public function setIdProduit(): self
+    {
+        $this->idproduit = $idProduit;
+    
+        return $this;
     }
 
     public function getStock(): ?int

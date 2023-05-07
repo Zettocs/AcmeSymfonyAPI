@@ -134,13 +134,29 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
         // line 75
         echo "\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarColor02\">
 \t\t\t\t<ul class=\"navbar-nav ml-auto\" style=\"margin-left :70%\">
-\t\t\t\t\t";
+\t\t\t\t";
         // line 77
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 77, $this->source); })()), "user", [], "any", false, false, false, 77)) {
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
             // line 78
-            echo "\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a href=\"";
+            echo "  \t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t<a href=\"";
             // line 79
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("page_admin");
+            echo "\" class=\"nav-link\">
+\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
+\t\t\t\t\t\t\t\tGestion
+\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</li>
+\t\t\t\t";
+        }
+        // line 86
+        echo "\t\t\t\t\t";
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 86, $this->source); })()), "user", [], "any", false, false, false, 86)) {
+            // line 87
+            echo "\t\t\t\t\t\t<li class=\"\">
+\t\t\t\t\t\t\t<a href=\"";
+            // line 88
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_connexion");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
@@ -151,7 +167,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 87
+            // line 96
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_inscription");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
@@ -162,10 +178,11 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t";
         } else {
-            // line 95
-            echo "\t\t\t\t\t\t<li class=\"nav-item\">
+            // line 104
+            echo "
+\t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 96
+            // line 106
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;\">
@@ -175,7 +192,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 103
+            // line 113
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profil");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;\">
@@ -185,7 +202,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 110
+            // line 120
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_deconnexion");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:20%\">
@@ -195,7 +212,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t";
         }
-        // line 117
+        // line 127
         echo "\t\t\t\t</ul>
 \t\t\t</div>
 \t\t</div>
@@ -207,18 +224,18 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t<div class=\"col-lg-12\">
 
 \t\t\t\t\t<button class=\"close-navbar-button\" onclick=\"toggleNavbar();\"><img class=\"burger2\" src=\"";
-        // line 127
+        // line 137
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/burger2.png"), "html", null, true);
         echo "\"></button>
 \t\t\t\t\t<div class=\"centre\">
 \t\t\t\t\t\t<ul>
 \t\t\t\t\t\t\t";
-        // line 130
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 130, $this->source); })()), "user", [], "any", false, false, false, 130)) {
-            // line 131
+        // line 140
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 140, $this->source); })()), "user", [], "any", false, false, false, 140)) {
+            // line 141
             echo "\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t<a class=\"boutons_nav\" href=\"";
-            // line 132
+            // line 142
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil");
             echo "\">A c c u e i l</a>
 \t\t\t\t\t\t\t\t</li>
@@ -230,7 +247,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t</br>
 \t\t\t\t\t<li>
 \t\t\t\t\t\t<a class=\"boutons_nav\" href=\"";
-            // line 141
+            // line 151
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_connexion");
             echo "\">C o n n e x i o n</a>
 \t\t\t\t\t</li>
@@ -243,23 +260,23 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t</body>
 </body></li><li>
 <a class=\"boutons_nav\" href=\"";
-            // line 151
+            // line 161
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_inscription");
             echo "\">I n s c r i p t i o n</a></li>";
         } else {
             echo "<li>
 <a class=\"boutons_nav\" href=\"";
-            // line 152
+            // line 162
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil_shop");
             echo "\">A c c u e i l</a></li></br></li>
 <li><div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br>
 <li><a class=\"boutons_nav\" href=\"";
-            // line 154
+            // line 164
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier");
             echo "\">P a n i e r</a></li></br></li><li>
 <div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br>
 <li><a class=\"boutons_nav\" href=\"";
-            // line 156
+            // line 166
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_deconnexion");
             echo "\">D é c o n n e x i o n</a></li>";
         }
@@ -286,7 +303,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 
     public function getDebugInfo()
     {
-        return array (  263 => 156,  258 => 154,  253 => 152,  247 => 151,  234 => 141,  222 => 132,  219 => 131,  217 => 130,  211 => 127,  199 => 117,  189 => 110,  179 => 103,  169 => 96,  166 => 95,  155 => 87,  144 => 79,  141 => 78,  139 => 77,  135 => 75,  127 => 73,  118 => 70,  116 => 69,  64 => 20,  43 => 1,);
+        return array (  280 => 166,  275 => 164,  270 => 162,  264 => 161,  251 => 151,  239 => 142,  236 => 141,  234 => 140,  228 => 137,  216 => 127,  206 => 120,  196 => 113,  186 => 106,  182 => 104,  171 => 96,  160 => 88,  157 => 87,  154 => 86,  144 => 79,  141 => 78,  139 => 77,  135 => 75,  127 => 73,  118 => 70,  116 => 69,  64 => 20,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -367,8 +384,17 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t{% endif %}
 \t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarColor02\">
 \t\t\t\t<ul class=\"navbar-nav ml-auto\" style=\"margin-left :70%\">
+\t\t\t\t{% if is_granted('ROLE_ADMIN') %}
+  \t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t<a href=\"{{ path('page_admin') }}\" class=\"nav-link\">
+\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
+\t\t\t\t\t\t\t\tGestion
+\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</li>
+\t\t\t\t{% endif %}
 \t\t\t\t\t{% if not app.user %}
-\t\t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t<li class=\"\">
 \t\t\t\t\t\t\t<a href=\"{{ path('security_connexion') }}\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
 \t\t\t\t\t\t\t\t\tConnexion
@@ -385,6 +411,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t{% else %}
+
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"{{ path('panier') }}\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;\">

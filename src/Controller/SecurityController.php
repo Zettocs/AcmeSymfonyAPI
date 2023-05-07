@@ -132,38 +132,6 @@ class SecurityController extends AbstractController
         ]);
     }
 
-/**
- * @Route("/api/adminconnexion", name="security_api_connexion", methods={"POST"})
- */
-public function apiAdminLogin(Request $request, JWTTokenManagerInterface $jwtManager, UserPasswordEncoderInterface $encoder)
-{
-    // Récupérez les données de connexion du corps de la requête
-    $data = json_decode($request->getContent(), true);
-    $email = isset($data['email']) ? $data['email'] : '';
-    $password = $data['password'] ?? '';
-
-    // Trouvez l'utilisateur dans la base de données en fonction de l'email
-    $userRepository = $this->getDoctrine()->getRepository(Admin::class);
-    $user = $userRepository->findOneBy(['email' => $email]);
-
-    // Si l'utilisateur n'existe pas ou que le mot de passe est incorrect, renvoyez une réponse avec une erreur
-    if (!$user || !$encoder->isPasswordValid($user, $password)) {
-        return new JsonResponse(['error' => 'Email ou mot de passe incorrect'], Response::HTTP_UNAUTHORIZED);
-    }
-
-    // Créez un JWT pour l'utilisateur connecté
-    $token = $jwtManager->create($user);
-
-    // Renvoyez les informations de l'utilisateur et le JWT
-    return new JsonResponse([
-        'user' => [
-            'id' => $user->getIdAdmin(),
-            'email' => $user->getEmail(),
-        ],
-        'token' => $token,
-    ]);
-}
-
     /**
      * @Route("/api/deconnexion", name="security_api_deconnexion", methods={"POST"})
      */

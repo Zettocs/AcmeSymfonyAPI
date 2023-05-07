@@ -8,6 +8,7 @@ use App\Entity\Produit;
 
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -133,5 +134,58 @@ class AdminController extends AbstractController
         return $this->render('admin/admin_confirmation_suppression.html.twig', [
             'produit' => $produit,
         ]);
+    }
+
+    /**
+     * @Route("/ajout_produit", name="ajout_produit")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function ajouterProduit(Request $request, EntityManagerInterface $em, ManagerRegistry $doctrine)
+    {
+        // Création d'une nouvelle instance de l'entité Produit
+        $produit = new Produit();
+
+        // Récupération des données du formulaire
+        $nom = $request->request->get('nom');
+        $reference = $request->request->get('reference');
+        $prix = $request->request->get('prix');
+        $quantite = $request->request->get('quantite');
+        // Récupération du fichier image
+        $image = $request->files->get('image');
+    
+        // Vérification si le formulaire a été soumis
+        if ($request->isMethod('POST')) {
+            // Affectation des données du formulaire à l'entité Produit
+            $produit->setNom($nom);
+            $produit->setRéférence($reference);
+            $produit->setPrix($prix);
+            $produit->setStock($quantite);
+            $produit->setPhoto($image);
+            
+            // Vérification si un fichier image a été téléchargé
+            if ($image !== null) {
+                $imageName = md5(uniqid()) . '.' . $image->guessExtension();
+    
+                // Déplacement du fichier image dans le répertoire public/images
+                $image->move(
+                    $this->getParameter('images_directory'),
+                    $imageName
+                );
+    
+                // Affectation du nom de l'image à l'entité Produit
+                $produit->setImage($imageName);
+            }
+    
+            // Sauvegarde du produit dans la base de données
+            $em = $doctrine->getManager();
+            $em->persist($produit);
+            $em->flush();
+    
+            // Redirection vers la page d'administration des produits
+            return $this->redirectToRoute('admin_produits');
+        }
+    
+        // Affichage du formulaire d'ajout de produit
+        return $this->render('admin/admin_confirmation.html.twig');
     }
 }

@@ -234,7 +234,7 @@ class __TwigTemplate_c7d2fe7ea2cc784bdea9e11e03ad7cc7 extends Template
 \t</style>
 
 \t<div class=\"bandeau\">
-\t\t<h1>Collection glace</h1>
+\t\t<h1>Gestion</h1>
 \t</div>
 
 
@@ -555,7 +555,7 @@ class __TwigTemplate_c7d2fe7ea2cc784bdea9e11e03ad7cc7 extends Template
 \t</style>
 
 \t<div class=\"bandeau\">
-\t\t<h1>Collection glace</h1>
+\t\t<h1>Gestion</h1>
 \t</div>
 
 

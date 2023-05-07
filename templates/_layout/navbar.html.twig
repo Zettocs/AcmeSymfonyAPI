@@ -74,8 +74,17 @@
 			{% endif %}
 			<div class="collapse navbar-collapse" id="navbarColor02">
 				<ul class="navbar-nav ml-auto" style="margin-left :70%">
+				{% if is_granted('ROLE_ADMIN') %}
+  					<li class="nav-item">
+						<a href="{{ path('page_admin') }}" class="nav-link">
+							<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
+								Gestion
+							</button>
+						</a>
+					</li>
+				{% endif %}
 					{% if not app.user %}
-						<li class="nav-item">
+						<li class="">
 							<a href="{{ path('security_connexion') }}" class="nav-link">
 								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
 									Connexion
@@ -92,6 +101,7 @@
 							</a>
 						</li>
 					{% else %}
+
 						<li class="nav-item">
 							<a href="{{ path('panier') }}" class="nav-link">
 								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;">
