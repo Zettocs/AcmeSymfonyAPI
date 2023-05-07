@@ -64,42 +64,42 @@ class UtilisateurType extends AbstractType
             ])
             ->add('Enregistrer', SubmitType::class);
 
-            if (!empty($options['data']->getEmail())) {
+            if (isset($options['data']) && !empty($options['data']->getEmail())) {
                 $builder->add('email', TextType::class, [
                     'label' => 'Email',
                     'required' => false
                 ]);
             }
         
-            if (!empty($options['data']->getUsername())) {
+            if (isset($options['data']) && !empty($options['data']->getUsername())) {
                 $builder->add('username', TextType::class, [
                     'label' => 'Nom d\'utilisateur',
                     'required' => false
                 ]);
             }
         
-            if (!empty($options['data']->getFirstname())) {
+            if (isset($options['data']) && !empty($options['data']->getFirstname())) {
                 $builder->add('firstname', TextType::class, [
                     'label' => 'Prénom',
                     'required' => false
                 ]);
             }
         
-            if (!empty($options['data']->getAdresse())) {
+            if (isset($options['data']) && !empty($options['data']->getAdresse())) {
                 $builder->add('adresse', TextType::class, [
                     'label' => 'Adresse',
                     'required' => false
                 ]);
             }
         
-            if (!empty($options['data']->getVille())) {
+            if (isset($options['data']) && !empty($options['data']->getVille())) {
                 $builder->add('ville', TextType::class, [
                     'label' => 'Ville',
                     'required' => false
                 ]);
             }
         
-            if (!empty($options['data']->getPays())) {
+            if (isset($options['data']) && !empty($options['data']->getPays())) {
                 $builder->add('pays', TextType::class, [
                     'label' => 'Pays',
                     'required' => false
@@ -116,7 +116,7 @@ class UtilisateurType extends AbstractType
 
     public function validatePassword($value, ExecutionContextInterface $context)
     {
-        $user = $context->getObject();
+        $user = $context->getRoot()->getData();
         if ($user->getPassword() !== $value) {
             $context->buildViolation('Les mots de passe ne correspondent pas')
                 ->atPath('passwordVerification')

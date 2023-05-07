@@ -29,7 +29,7 @@ return [
     'panier_supprimer' => [['index'], ['_controller' => 'App\\Controller\\PanierController::supprimer'], [], [['variable', '/', '[^/]++', 'index', true], ['text', '/panier/supprimer']], [], [], []],
     'profil' => [[], ['_controller' => 'App\\Controller\\ProfilController::profil'], [], [['text', '/profil/']], [], [], []],
     'historique' => [[], ['_controller' => 'App\\Controller\\ProfilController::getUserHistoCommandes'], [], [['text', '/profil/historique']], [], [], []],
-    'modifier_profil' => [[], ['_controller' => 'App\\Controller\\ProfilController::modifierprofil'], [], [['text', '/profil/modifier']], [], [], []],
+    'modifier_profil' => [[], ['_controller' => 'App\\Controller\\ProfilController::modifierProfil'], [], [['text', '/profil/modifier']], [], [], []],
     'security_inscription' => [[], ['_controller' => 'App\\Controller\\SecurityController::inscription'], [], [['text', '/inscription']], [], [], []],
     'security_connexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/connexion']], [], [], []],
     'security_deconnexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/deconnexion']], [], [], []],

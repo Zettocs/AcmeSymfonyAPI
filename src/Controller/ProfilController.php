@@ -77,26 +77,21 @@ class ProfilController extends AbstractController
     /**
     * @Route("/profil/modifier", name="modifier_profil")
     */
-    public function modifierprofil(Request $request)
+    public function modifierProfil(Request $request): Response
     {
         $user = $this->getUser();
         $form = $this->createForm(UtilisateurType::class, $user);
-    
         $form->handleRequest($request);
+    
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-            $this->addFlash('success', 'Your profile has been updated!');
-            return $this->redirectToRoute('profile');
+            $user->getInfoProfil($form->getData());
+            $this->doctrine->getManager()->flush();
+            $this->addFlash('success', 'Profil mis à jour.');
         }
     
         return $this->render('profil/modifier_profil.html.twig', [
             'form' => $form->createView(),
         ]);
-        
-        
     }
 
 }

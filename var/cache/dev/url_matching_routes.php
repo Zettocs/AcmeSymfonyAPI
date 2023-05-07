@@ -25,7 +25,7 @@ return [
         '/valider-commande' => [[['_route' => 'valider_commande', '_controller' => 'App\\Controller\\PanierController::validerCommande'], null, null, null, false, false, null]],
         '/profil' => [[['_route' => 'profil', '_controller' => 'App\\Controller\\ProfilController::profil'], null, null, null, true, false, null]],
         '/profil/historique' => [[['_route' => 'historique', '_controller' => 'App\\Controller\\ProfilController::getUserHistoCommandes'], null, null, null, false, false, null]],
-        '/profil/modifier' => [[['_route' => 'modifier_profil', '_controller' => 'App\\Controller\\ProfilController::modifierprofil'], null, null, null, false, false, null]],
+        '/profil/modifier' => [[['_route' => 'modifier_profil', '_controller' => 'App\\Controller\\ProfilController::modifierProfil'], null, null, null, false, false, null]],
         '/inscription' => [[['_route' => 'security_inscription', '_controller' => 'App\\Controller\\SecurityController::inscription'], null, null, null, false, false, null]],
         '/connexion' => [[['_route' => 'security_connexion', '_controller' => 'App\\Controller\\SecurityController::login'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/deconnexion' => [[['_route' => 'security_deconnexion', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],

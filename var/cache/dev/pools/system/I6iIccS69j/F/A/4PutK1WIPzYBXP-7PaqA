@@ -19,7 +19,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 [],
             ],
             'name' => [
-                null,
+                'modifier_stock',
             ],
             'requirements' => [
                 [],

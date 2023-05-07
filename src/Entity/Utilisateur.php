@@ -261,5 +261,28 @@ class Utilisateur implements PasswordAuthenticatedUserInterface, UserInterface
 
         return $this;
     }
+
+    public function getInfoProfil(Utilisateur $utilisateur): void
+    {
+        $infoProfil = array(
+            'email' => $utilisateur->getEmail(),
+            'firstname' => $utilisateur->getFirstname(),
+            'adresse' => $utilisateur->getAdresse(),
+            'ville' => $utilisateur->getVille(),
+            'pays' => $utilisateur->getPays(),
+            'password' => $utilisateur->getPassword()
+        );
+
+        $this->setEmail($infoProfil['email'] ?? $this->getEmail());
+        $this->setUsername($infoProfil['username'] ?? $this->getUsername());
+        $this->setFirstname($infoProfil['firstname'] ?? $this->getFirstname());
+        $this->setAdresse($infoProfil['adresse'] ?? $this->getAdresse());
+        $this->setVille($infoProfil['ville'] ?? $this->getVille());
+        $this->setPays($infoProfil['pays'] ?? $this->getPays());
+    
+        if (isset($infoProfil['password']) && !empty($infoProfil['password'])) {
+            $this->setPassword(password_hash($infoProfil['password'], PASSWORD_BCRYPT));
+        }
+    }
 }
 
