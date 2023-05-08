@@ -477,6 +477,7 @@
       <tag name="container.service_subscriber"/>
       <argument type="service" id="doctrine"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="debug.serializer"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\SecurityController"/>
       </call>

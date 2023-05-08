@@ -63,7 +63,11 @@ return [
                     .')'
                     .'|anier/supprimer/([^/]++)(*:271)'
                 .')'
-                .'|/api/utilisateur/([^/]++)(*:305)'
+                .'|/api/(?'
+                    .'|commandes([^/]++)(*:305)'
+                    .'|utilisateur/([^/]++)(*:333)'
+                    .'|ligne_commande/([^/]++)(*:364)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -78,8 +82,10 @@ return [
         219 => [[['_route' => 'produit_admin_detail', '_controller' => 'App\\Controller\\AdminController::produitAdminDetail'], ['id'], null, null, false, true, null]],
         237 => [[['_route' => 'produit_admin_supprimer', '_controller' => 'App\\Controller\\AdminController::produitAdminSupprimer'], ['id'], null, null, false, false, null]],
         271 => [[['_route' => 'panier_supprimer', '_controller' => 'App\\Controller\\PanierController::supprimer'], ['index'], null, null, false, true, null]],
-        305 => [
-            [['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null],
+        305 => [[['_route' => 'app_security_gethistocommandes', '_controller' => 'App\\Controller\\SecurityController::getHistoCommandes'], ['id'], ['GET' => 0], null, false, true, null]],
+        333 => [[['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null]],
+        364 => [
+            [['_route' => 'get_ligne_commande', '_controller' => 'App\\Controller\\SecurityController::getLigneCommande'], ['id'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

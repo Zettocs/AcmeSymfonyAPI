@@ -5,7 +5,8 @@ namespace App\Controller;
 use App\Entity\Utilisateur;
 use App\Form\InscriptionType;
 use App\Entity\Produit;
-
+use App\Entity\LigneCommande;
+use App\Entity\Commande;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -23,19 +24,23 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
-
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Serializer\SerializerInterface;
+
 
 
 class SecurityController extends AbstractController
 {
     private $doctrine;
     private $entityManager;
+    private $serializer;
 
-    public function __construct(ManagerRegistry $doctrine, EntityManagerInterface $entityManager)
+    public function __construct(ManagerRegistry $doctrine, EntityManagerInterface $entityManager, SerializerInterface $serializer)
 	{
    	 $this->doctrine = $doctrine;
    	 $this->entityManager = $entityManager;
+     $this->serializer = $serializer;
 	}
 
     /**
@@ -190,6 +195,26 @@ public function modifierStock(Request $request, EntityManagerInterface $entityMa
     return new JsonResponse(['success' => true]);
 }
 
+/**
+ * @Route("/api/commandes{id}", methods={"GET"})
+ */
+
+public function getHistoCommandes($userId)
+{
+    $commandes = $this->entityManager->getRepository(\App\Entity\Commande::class)->findBy(['utilisateur' => $userId]);
+    
+    $commandesArray = [];
+    foreach ($commandes as $commande) {
+        $commandesArray[] = [
+            'id' => $commande->getId(),
+            'date_commande' => $commande->getDateCommande(),
+            'utilisateur_id' => $commande->getUtilisateur(),
+            'prix_total' => $commande->getPrixTotal(),
+        ];
+    }
+    
+    return $commandesArray;
+}
 
 /**
  * @Route("/api/historique_commande", methods={"GET"})
@@ -213,7 +238,6 @@ public function getAllCommandes(): JsonResponse
     return new JsonResponse($commandesArray);
 }
 
-
 /**
  *@Route("/api/utilisateur/{id}", methods={"GET"})
  */
@@ -229,8 +253,29 @@ $utilisateurArray = [
 return new JsonResponse($utilisateurArray);
 }  
 
+/**
+ * @Route("/api/ligne_commande/{id}", name="get_ligne_commande", methods={"GET"})
+ */
+
+ public function getLigneCommande($id): JsonResponse
+ {
+    $lignesCommande = $this->entityManager->getRepository(\App\Entity\LigneCommande::class)->findBy(['commande' => $id]);
+
+    $reponse = [];
+
+    foreach ($lignesCommande as $ligneCommande) {
+    $reponse[] = [
+        'id' => $ligneCommande->getId(),
+        'commande_id' => $ligneCommande->getCommande()->getId(),
+        'produit_id' => $ligneCommande->getProduit()->getNom(),
+        'prix' => $ligneCommande->getPrix()
+        ];
 
 
+    }
 
-    
+    return new JsonResponse($reponse);    
+
+}
+
 }

@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+
 /**
  * @ORM\Entity
  */
@@ -121,11 +122,11 @@ class Commande
     }
 
     /**
-     * @return Collection|Produit[]
+     * @return ArrayCollection|Produit[]
      */
-    public function getProduits(): Collection
+    public function getProduits(): ArrayCollection
     {
-        return $this->produits;
+        return new ArrayCollection($this->produits->toArray());
     }
 
     public function addProduit(Produit $produit): self

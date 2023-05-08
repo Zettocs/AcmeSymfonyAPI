@@ -36,8 +36,10 @@ return [
     'security_api_connexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::apiLogin'], [], [['text', '/api/connexion']], [], [], []],
     'security_api_deconnexion' => [[], ['_controller' => 'App\\Controller\\SecurityController::apiLogout'], [], [['text', '/api/deconnexion']], [], [], []],
     'modifier_stock' => [[], ['_controller' => 'App\\Controller\\SecurityController::modifierStock'], [], [['text', '/api/modifier-stock']], [], [], []],
+    'app_security_gethistocommandes' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::getHistoCommandes'], [], [['variable', '', '[^/]++', 'id', true], ['text', '/api/commandes']], [], [], []],
     'app_security_getallcommandes' => [[], ['_controller' => 'App\\Controller\\SecurityController::getAllCommandes'], [], [['text', '/api/historique_commande']], [], [], []],
     'app_security_getutilisateur' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/utilisateur']], [], [], []],
+    'get_ligne_commande' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::getLigneCommande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/ligne_commande']], [], [], []],
     'api_produits' => [[], ['_controller' => 'App\\Controller\\SecurityController::getProduits'], [], [['text', '/api/produits']], [], [], []],
     'page_admin' => [[], ['_controller' => 'App\\Controller\\AdminController::pageAdmin'], ['_security' => 'is_granted("ROLE_ADMIN")'], [['text', '/page-admin']], [], [], []],
 ];
