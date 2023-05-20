@@ -21,6 +21,7 @@ return [
         '/shop' => [[['_route' => 'accueil_shop', '_controller' => 'App\\Controller\\AccueilShopController::index'], null, null, null, false, false, null]],
         '/modifier-stock-admin' => [[['_route' => 'modifier_stock_admin', '_controller' => 'App\\Controller\\AdminController::modifierStockAdmin'], null, null, null, false, false, null]],
         '/ajout_produit' => [[['_route' => 'ajout_produit', '_controller' => 'App\\Controller\\AdminController::ajouterProduit'], null, null, null, false, false, null]],
+        '/admin_historique' => [[['_route' => 'admin_historique', '_controller' => 'App\\Controller\\AdminController::getAllCommandes'], null, ['GET' => 0], null, false, false, null]],
         '/panier' => [[['_route' => 'panier', '_controller' => 'App\\Controller\\PanierController::index'], null, null, null, false, false, null]],
         '/valider-commande' => [[['_route' => 'valider_commande', '_controller' => 'App\\Controller\\PanierController::validerCommande'], null, null, null, false, false, null]],
         '/profil' => [[['_route' => 'profil', '_controller' => 'App\\Controller\\ProfilController::profil'], null, null, null, true, false, null]],
@@ -63,10 +64,15 @@ return [
                     .')'
                     .'|anier/supprimer/([^/]++)(*:271)'
                 .')'
-                .'|/api/(?'
-                    .'|commandes([^/]++)(*:305)'
-                    .'|utilisateur/([^/]++)(*:333)'
-                    .'|ligne_commande/([^/]++)(*:364)'
+                .'|/a(?'
+                    .'|dmin_historique/([^/]++)/modifier_statut(*:325)'
+                    .'|pi/(?'
+                        .'|commande(?'
+                            .'|s([^/]++)(*:359)'
+                            .'|_user/([^/]++)(*:381)'
+                        .')'
+                        .'|utilisateur/([^/]++)(*:410)'
+                    .')'
                 .')'
             .')/?$}sDu',
     ],
@@ -82,10 +88,11 @@ return [
         219 => [[['_route' => 'produit_admin_detail', '_controller' => 'App\\Controller\\AdminController::produitAdminDetail'], ['id'], null, null, false, true, null]],
         237 => [[['_route' => 'produit_admin_supprimer', '_controller' => 'App\\Controller\\AdminController::produitAdminSupprimer'], ['id'], null, null, false, false, null]],
         271 => [[['_route' => 'panier_supprimer', '_controller' => 'App\\Controller\\PanierController::supprimer'], ['index'], null, null, false, true, null]],
-        305 => [[['_route' => 'app_security_gethistocommandes', '_controller' => 'App\\Controller\\SecurityController::getHistoCommandes'], ['id'], ['GET' => 0], null, false, true, null]],
-        333 => [[['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null]],
-        364 => [
-            [['_route' => 'get_ligne_commande', '_controller' => 'App\\Controller\\SecurityController::getLigneCommande'], ['id'], ['GET' => 0], null, false, true, null],
+        325 => [[['_route' => 'modifier_statut', '_controller' => 'App\\Controller\\AdminController::modifierStatut'], ['id'], ['POST' => 0], null, false, false, null]],
+        359 => [[['_route' => 'app_security_gethistocommandes', '_controller' => 'App\\Controller\\SecurityController::getHistoCommandes'], ['id'], ['GET' => 0], null, false, true, null]],
+        381 => [[['_route' => 'get_ligne_commande', '_controller' => 'App\\Controller\\SecurityController::getHistoCommandesByUser'], ['id'], ['GET' => 0], null, false, true, null]],
+        410 => [
+            [['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

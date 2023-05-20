@@ -35,6 +35,7 @@ class PanierController extends AbstractController
                 'idproduit' => $request->request->get('idproduit'),
                 'nom' => $request->request->get('nom'),
                 'prix' => $request->request->get('prix'),
+                'stock' => $request->request->getInt('stock')
             ];
     
             // Ajouter le produit au panier
@@ -48,20 +49,24 @@ class PanierController extends AbstractController
             return $sum + $produit['prix'];
         }, 0);
         $session->set('total', $total);
+ 
+
     
         return $this->render('acme/panier.html.twig', [
             'produits' => $produits,
             'total' => $total,
         ]);
+        
     }
 
     /**
      * @Route("/valider-commande", name="valider_commande")
      */
-    public function validerCommande(SessionInterface $session, EntityManagerInterface $entityManager): Response
+    public function validerCommande(Request $request, SessionInterface $session, EntityManagerInterface $entityManager): Response
     {
         // Récupérer les produits du panier
-        $panier = $session->get('panier', []);
+        $data = $request->request->all();
+        $panier = $data['panier'] ?? [];
         $total = $session->get('total');
     
         // Récupérer l'utilisateur connecté
@@ -80,8 +85,19 @@ class PanierController extends AbstractController
             $ligneCommande->setCommande($commande);
             $ligneCommande->setProduit($produit); // Utiliser l'article directement
             $ligneCommande->setPrix($article['prix']);
+
+            $quantiteCommandee = $article['stock'];
+            $quantiteEnStock = $produit->getStock();
+
             $commande->addLigneCommande($ligneCommande); // Utiliser la méthode addLignesCommande de la classe Commande
+            $entityManager->persist($produit);
+
+
+
+            
         }
+        var_dump($data);
+        var_dump($panier);
     
         // Enregistrer la commande dans la base de données
         //$entityManager = $this->entityManager;

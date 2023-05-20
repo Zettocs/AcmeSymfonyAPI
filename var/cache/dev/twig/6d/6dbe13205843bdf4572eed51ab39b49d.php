@@ -147,16 +147,24 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t\t\tGestion
 \t\t\t\t\t\t\t</button>
 \t\t\t\t\t\t</a>
+\t\t\t\t\t\t<a href=\"";
+            // line 84
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_historique");
+            echo "\" class=\"nav-link\">
+\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
+\t\t\t\t\t\t\t\tHistorique
+\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t</a>
 \t\t\t\t\t</li>
 \t\t\t\t";
         }
-        // line 86
+        // line 91
         echo "\t\t\t\t\t";
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 86, $this->source); })()), "user", [], "any", false, false, false, 86)) {
-            // line 87
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 91, $this->source); })()), "user", [], "any", false, false, false, 91)) {
+            // line 92
             echo "\t\t\t\t\t\t<li class=\"\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 88
+            // line 93
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_connexion");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
@@ -167,7 +175,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 96
+            // line 101
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_inscription");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
@@ -178,11 +186,11 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t";
         } else {
-            // line 104
+            // line 109
             echo "
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 106
+            // line 111
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;\">
@@ -192,7 +200,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 113
+            // line 118
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profil");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;\">
@@ -202,7 +210,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a href=\"";
-            // line 120
+            // line 125
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_deconnexion");
             echo "\" class=\"nav-link\">
 \t\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:20%\">
@@ -212,7 +220,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t";
         }
-        // line 127
+        // line 132
         echo "\t\t\t\t</ul>
 \t\t\t</div>
 \t\t</div>
@@ -224,18 +232,18 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t<div class=\"col-lg-12\">
 
 \t\t\t\t\t<button class=\"close-navbar-button\" onclick=\"toggleNavbar();\"><img class=\"burger2\" src=\"";
-        // line 137
+        // line 142
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/burger2.png"), "html", null, true);
         echo "\"></button>
 \t\t\t\t\t<div class=\"centre\">
 \t\t\t\t\t\t<ul>
 \t\t\t\t\t\t\t";
-        // line 140
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 140, $this->source); })()), "user", [], "any", false, false, false, 140)) {
-            // line 141
+        // line 145
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 145, $this->source); })()), "user", [], "any", false, false, false, 145)) {
+            // line 146
             echo "\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t<a class=\"boutons_nav\" href=\"";
-            // line 142
+            // line 147
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil");
             echo "\">A c c u e i l</a>
 \t\t\t\t\t\t\t\t</li>
@@ -247,7 +255,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t</br>
 \t\t\t\t\t<li>
 \t\t\t\t\t\t<a class=\"boutons_nav\" href=\"";
-            // line 151
+            // line 156
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_connexion");
             echo "\">C o n n e x i o n</a>
 \t\t\t\t\t</li>
@@ -260,23 +268,23 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t</body>
 </body></li><li>
 <a class=\"boutons_nav\" href=\"";
-            // line 161
+            // line 166
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_inscription");
             echo "\">I n s c r i p t i o n</a></li>";
         } else {
             echo "<li>
 <a class=\"boutons_nav\" href=\"";
-            // line 162
+            // line 167
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil_shop");
             echo "\">A c c u e i l</a></li></br></li>
 <li><div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br>
 <li><a class=\"boutons_nav\" href=\"";
-            // line 164
+            // line 169
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier");
             echo "\">P a n i e r</a></li></br></li><li>
 <div style=\"background-color: white; width: 30%; height: 2px; display: inline-block;\"></div></li></br>
 <li><a class=\"boutons_nav\" href=\"";
-            // line 166
+            // line 171
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_deconnexion");
             echo "\">D é c o n n e x i o n</a></li>";
         }
@@ -303,7 +311,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 
     public function getDebugInfo()
     {
-        return array (  280 => 166,  275 => 164,  270 => 162,  264 => 161,  251 => 151,  239 => 142,  236 => 141,  234 => 140,  228 => 137,  216 => 127,  206 => 120,  196 => 113,  186 => 106,  182 => 104,  171 => 96,  160 => 88,  157 => 87,  154 => 86,  144 => 79,  141 => 78,  139 => 77,  135 => 75,  127 => 73,  118 => 70,  116 => 69,  64 => 20,  43 => 1,);
+        return array (  288 => 171,  283 => 169,  278 => 167,  272 => 166,  259 => 156,  247 => 147,  244 => 146,  242 => 145,  236 => 142,  224 => 132,  214 => 125,  204 => 118,  194 => 111,  190 => 109,  179 => 101,  168 => 93,  165 => 92,  162 => 91,  152 => 84,  144 => 79,  141 => 78,  139 => 77,  135 => 75,  127 => 73,  118 => 70,  116 => 69,  64 => 20,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -389,6 +397,11 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 \t\t\t\t\t\t<a href=\"{{ path('page_admin') }}\" class=\"nav-link\">
 \t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
 \t\t\t\t\t\t\t\tGestion
+\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t</a>
+\t\t\t\t\t\t<a href=\"{{ path('admin_historique') }}\" class=\"nav-link\">
+\t\t\t\t\t\t\t<button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
+\t\t\t\t\t\t\t\tHistorique
 \t\t\t\t\t\t\t</button>
 \t\t\t\t\t\t</a>
 \t\t\t\t\t</li>

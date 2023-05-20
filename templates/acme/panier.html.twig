@@ -37,6 +37,8 @@
     </style>
 {% endblock %}
 
+{% block title %}Panier{% endblock %}
+
 {% block body %}
 
 <div class="container">
@@ -46,33 +48,51 @@
             <tr>
                 <th>Nom</th>
                 <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
                 <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
             {% if produits is not empty %}
+                {% set total = 0 %}
                 {% for index, produit in produits %}
+                    {% set subtotal = produit.prix * produit.stock %}
+                    {% set total = total + subtotal %}
                     <tr>
                         <td>{{ produit.nom }}</td>
                         <td>{{ produit.prix }} €</td>
+                        <td>{{ produit.stock }}</td>
+                        <td>{{ subtotal }} €</td>
                         <td><a href="{{ path('panier_supprimer', {'index': index}) }}" class="btn btn-danger">Supprimer</a></td>
                     </tr>
                 {% endfor %}
                 <tr>
                     <td>Total</td>
+                    <td></td>
+                    <td></td>
                     <td>{{ total }} €</td>
                     <td></td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="3">Votre panier est vide</td>
+                    <td colspan="5">Votre panier est vide.</td>
                 </tr>
             {% endif %}
         </tbody>
     </table>
-    <a href="{{ path('valider_commande') }}" class="btn btn-primary">Confirmer la commande</a>
-</div> 
 
-
+    {% if produits is not empty %}
+        <form method="POST" action="{{ path('valider_commande') }}">
+            {% for index, produit in produits %}
+                <input type="hidden" name="panier[{{ index }}][idproduit]" value="{{ produit.idproduit }}" />
+                <input type="hidden" name="panier[{{ index }}][nom]" value="{{ produit.nom }}" />
+                <input type="hidden" name="panier[{{ index }}][prix]" value="{{ produit.prix }}" />
+                <input type="hidden" name="panier[{{ index }}][stock]" value="1" />
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Confirmer la commande</button>
+        </form>
+    {% endif %}
+</div>
 
 {% endblock %}

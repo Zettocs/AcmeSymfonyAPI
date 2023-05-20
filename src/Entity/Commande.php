@@ -49,11 +49,17 @@ class Commande
     */
     private $lignesCommande;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etatCommande;
+
     public function __construct()
     {
         $this->lignesCommande = new ArrayCollection();
         $this->dateCommande = new \DateTime();
         $this->prixTotal = 0;
+        $this->etatCommande = 'En préparation';
     }
 
     public function addLigneCommande(LigneCommande $ligneCommande): self
@@ -143,6 +149,18 @@ class Commande
         if ($this->produits->contains($produit)) {
             $this->produits->removeElement($produit);
         }
+
+        return $this;
+    }
+
+    public function getEtatCommande(): ?string
+    {
+        return $this->etatCommande;
+    }
+
+    public function setEtatCommande(string $etatCommande): self
+    {
+        $this->etatCommande = $etatCommande;
 
         return $this;
     }

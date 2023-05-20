@@ -131,6 +131,7 @@ class SecurityController extends AbstractController
                 'adresse' => $user->getAdresse(),
                 'ville' => $user->getVille(),
                 'pays' => $user->getPays(),
+                'roles' => json_encode($user->getRoles()),
             ],
             
             'token' => $token,
@@ -248,6 +249,7 @@ $utilisateur = $this->entityManager->getRepository(\App\Entity\Utilisateur::clas
 $utilisateurArray = [
 'nom' => $utilisateur->getFirstname(),
 'email' => $utilisateur->getEmail(),
+'roles' => $utilisateur->getRoles()[0],
 ];
 
 return new JsonResponse($utilisateurArray);
@@ -257,25 +259,42 @@ return new JsonResponse($utilisateurArray);
  * @Route("/api/ligne_commande/{id}", name="get_ligne_commande", methods={"GET"})
  */
 
- public function getLigneCommande($id): JsonResponse
- {
+public function getLigneCommande($id): JsonResponse
+{
     $lignesCommande = $this->entityManager->getRepository(\App\Entity\LigneCommande::class)->findBy(['commande' => $id]);
+    $commande = $this->entityManager->getRepository(\App\Entity\Commande::class)->find($id);
 
-    $reponse = [];
 
     foreach ($lignesCommande as $ligneCommande) {
-    $reponse[] = [
-        'id' => $ligneCommande->getId(),
-        'commande_id' => $ligneCommande->getCommande()->getId(),
-        'produit_id' => $ligneCommande->getProduit()->getNom(),
-        'prix' => $ligneCommande->getPrix()
+        $reponse['lignes_commande'][] = [
+            'id' => $ligneCommande->getId(),
+            'commande_id' => $ligneCommande->getCommande()->getId(),
+            'produit_id' => $ligneCommande->getProduit()->getNom(),
+            'prix' => $ligneCommande->getPrix(),
         ];
-
-
     }
 
-    return new JsonResponse($reponse);    
+    return new JsonResponse($reponse);
+}
 
+/**
+ * @Route("/api/commande_user/{id}", name="get_ligne_commande", methods={"GET"})
+ */
+public function getHistoCommandesByUser($id): JsonResponse
+{
+    $commandes = $this->entityManager->getRepository(\App\Entity\Commande::class)->findBy(['utilisateur' => $id]);
+    
+    $commandesArray = [];
+    foreach ($commandes as $commande) {
+        $commandesArray[] = [
+            'id' => $commande->getId(),
+            'date_commande' => $commande->getDateCommande(),
+            'utilisateur_id' => $commande->getUtilisateur(),
+            'prix_total' => $commande->getPrixTotal(),
+        ];
+    }
+    
+    return new JsonResponse($commandesArray);
 }
 
 }

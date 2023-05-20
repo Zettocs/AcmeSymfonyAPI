@@ -20,6 +20,7 @@ use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundE
 use Symfony\Component\Security\Core\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 
 
@@ -182,10 +183,52 @@ class AdminController extends AbstractController
             $em->flush();
     
             // Redirection vers la page d'administration des produits
-            return $this->redirectToRoute('admin_produits');
+            return $this->redirectToRoute('page_admin');
         }
     
         // Affichage du formulaire d'ajout de produit
-        return $this->render('admin/admin_confirmation.html.twig');
+        return $this->render('admin/admin_ajouter_produit.html.twig');
     }
+
+    /**
+    * @Route("/admin_historique", methods={"GET"}, name="admin_historique")
+    */
+    public function getAllCommandes(): Response
+    {
+        $commandes = $this->entityManager->getRepository(\App\Entity\Commande::class)->findAll();
+    
+        $commandesArray = [];
+        foreach ($commandes as $commande) {
+            $commandesArray[] = [
+                'id' => $commande->getId(),
+                'date_commande' => $commande->getDateCommande(),
+                'utilisateur_id' => $commande->getUtilisateur()->getUsername(),
+                'prix_total' => $commande->getPrixTotal(),
+                'etat_commande' => $commande->getEtatCommande(),
+            ];
+        }
+    
+        return $this->render('admin/admin_historique.html.twig', [
+            'commandes' => $commandesArray,
+        ]);
+    }
+
+/**
+* @Route("/admin_historique/{id}/modifier_statut", methods={"POST"}, name="modifier_statut")
+*/
+public function modifierStatut(Request $request, $id): Response
+{
+    $entityManager = $this->doctrine->getManager();
+    $commande = $entityManager->getRepository(\App\Entity\Commande::class)->find($id);
+
+    if (!$commande) {
+        throw $this->createNotFoundException('La commande avec l\'ID '.$id.' n\'existe pas.');
+    }
+
+    $commande->setEtatCommande('Expédiée');
+    $entityManager->flush();
+
+    return $this->redirectToRoute('admin_historique');
+}
+
 }
