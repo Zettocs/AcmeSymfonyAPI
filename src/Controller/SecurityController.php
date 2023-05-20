@@ -211,6 +211,7 @@ public function getHistoCommandes($userId)
             'date_commande' => $commande->getDateCommande(),
             'utilisateur_id' => $commande->getUtilisateur(),
             'prix_total' => $commande->getPrixTotal(),
+            'etat_commande' => $commande->getEtatCommande(),
         ];
     }
     
@@ -233,6 +234,7 @@ public function getAllCommandes(): JsonResponse
             'date_commande' => $commande->getDateCommande(),
             'utilisateur_id' => $commande->getUtilisateur()->getIdUser(),
             'prix_total' => $commande->getPrixTotal(),
+            'etat_commande' => $commande->getEtatCommande(),
         ];
     }
     
