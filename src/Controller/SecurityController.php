@@ -258,7 +258,7 @@ return new JsonResponse($utilisateurArray);
 }  
 
 /**
- * @Route("/api/ligne_commande/{id}", name="get_ligne_commande", methods={"GET"})
+ * @Route("/api/ligne_commande/{id}", methods={"GET"})
  */
 
 public function getLigneCommande($id): JsonResponse
@@ -297,6 +297,23 @@ public function getHistoCommandesByUser($id): JsonResponse
     }
     
     return new JsonResponse($commandesArray);
+}
+
+/**
+ * @Route("/api/ajout_description", name="ajout_description", methods={"POST"})
+ */
+public function ajoutDescription($description, $id)
+{
+    $retour = new Retour();
+    
+    $retour->setLigneId($id);
+    $retour->setDescription($description);
+    $retour->setEtat($etat);
+    $retour->setType($type);
+    
+    $entityManager->persist($retour);
+    
+    $entityManager->flush();
 }
 
 }

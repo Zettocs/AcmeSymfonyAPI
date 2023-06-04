@@ -96,8 +96,7 @@ class PanierController extends AbstractController
 
             
         }
-        var_dump($data);
-        var_dump($panier);
+
     
         // Enregistrer la commande dans la base de données
         //$entityManager = $this->entityManager;

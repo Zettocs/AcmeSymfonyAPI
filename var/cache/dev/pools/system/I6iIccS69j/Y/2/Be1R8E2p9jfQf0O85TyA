@@ -19,7 +19,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 [],
             ],
             'name' => [
-                'get_ligne_commande',
+                null,
             ],
             'requirements' => [
                 [],

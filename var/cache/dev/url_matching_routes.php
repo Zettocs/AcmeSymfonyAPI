@@ -72,6 +72,7 @@ return [
                             .'|_user/([^/]++)(*:381)'
                         .')'
                         .'|utilisateur/([^/]++)(*:410)'
+                        .'|ligne_commande/([^/]++)(*:441)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -91,8 +92,9 @@ return [
         325 => [[['_route' => 'modifier_statut', '_controller' => 'App\\Controller\\AdminController::modifierStatut'], ['id'], ['POST' => 0], null, false, false, null]],
         359 => [[['_route' => 'app_security_gethistocommandes', '_controller' => 'App\\Controller\\SecurityController::getHistoCommandes'], ['id'], ['GET' => 0], null, false, true, null]],
         381 => [[['_route' => 'get_ligne_commande', '_controller' => 'App\\Controller\\SecurityController::getHistoCommandesByUser'], ['id'], ['GET' => 0], null, false, true, null]],
-        410 => [
-            [['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null],
+        410 => [[['_route' => 'app_security_getutilisateur', '_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], ['id'], ['GET' => 0], null, false, true, null]],
+        441 => [
+            [['_route' => 'app_security_getlignecommande', '_controller' => 'App\\Controller\\SecurityController::getLigneCommande'], ['id'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

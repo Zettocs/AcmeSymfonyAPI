@@ -11,5 +11,15 @@
         <li>Ville : {{ app.user.ville }}</li>
         <li>Pays : {{ app.user.pays }}</li>
         <li>Id : {{ app.user.iduser }}</li>
+        <a href="{{ path('modifier_profil') }}" class="nav-link">
+            <button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
+				Modifier le profil
+			</button>
+        </a>
+        <a href="{{ path('historique') }}" class="nav-link">
+            <button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
+				Voir l'historique des commandes
+			</button>
+        </a>
     </ul>
 {% endblock %}

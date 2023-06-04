@@ -41,6 +41,7 @@ return [
     'app_security_gethistocommandes' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::getHistoCommandes'], [], [['variable', '', '[^/]++', 'id', true], ['text', '/api/commandes']], [], [], []],
     'app_security_getallcommandes' => [[], ['_controller' => 'App\\Controller\\SecurityController::getAllCommandes'], [], [['text', '/api/historique_commande']], [], [], []],
     'app_security_getutilisateur' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::getUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/utilisateur']], [], [], []],
+    'app_security_getlignecommande' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::getLigneCommande'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/ligne_commande']], [], [], []],
     'get_ligne_commande' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::getHistoCommandesByUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/commande_user']], [], [], []],
     'api_produits' => [[], ['_controller' => 'App\\Controller\\SecurityController::getProduits'], [], [['text', '/api/produits']], [], [], []],
     'page_admin' => [[], ['_controller' => 'App\\Controller\\AdminController::pageAdmin'], ['_security' => 'is_granted("ROLE_ADMIN")'], [['text', '/page-admin']], [], [], []],
