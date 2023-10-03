@@ -45,7 +45,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />
         <meta name=\"description\" content=\"\" />
         <meta name=\"author\" content=\"\" />
-        <title>Freelancer - Start Bootstrap Theme</title>
+        <title>Solidar'Connect</title>
         <!-- Favicon-->
         <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
         <!-- Font Awesome icons (free version)-->
@@ -58,7 +58,10 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
     </head>
 <nav class=\"navbar navbar-expand-lg bg-secondary text-uppercase fixed-top\" id=\"mainNav\">
     <div class=\"container\">
-        <a class=\"navbar-brand\" href=\"#page-top\">Start Bootstrap</a>
+        <a class=\"navbar-brand\" href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil");
+        echo "\">Solidar'Connect</a>
             <button class=\"navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 Menu
             \t<i class=\"fas fa-bars\"></i>
@@ -103,7 +106,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
 
     public function getDebugInfo()
     {
-        return array (  70 => 26,  43 => 1,);
+        return array (  73 => 26,  63 => 19,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -113,7 +116,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />
         <meta name=\"description\" content=\"\" />
         <meta name=\"author\" content=\"\" />
-        <title>Freelancer - Start Bootstrap Theme</title>
+        <title>Solidar'Connect</title>
         <!-- Favicon-->
         <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
         <!-- Font Awesome icons (free version)-->
@@ -126,7 +129,7 @@ class __TwigTemplate_ec22eb1e31c63f678520519afbd34007 extends Template
     </head>
 <nav class=\"navbar navbar-expand-lg bg-secondary text-uppercase fixed-top\" id=\"mainNav\">
     <div class=\"container\">
-        <a class=\"navbar-brand\" href=\"#page-top\">Start Bootstrap</a>
+        <a class=\"navbar-brand\" href=\"{{ path('accueil') }}\">Solidar'Connect</a>
             <button class=\"navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 Menu
             \t<i class=\"fas fa-bars\"></i>

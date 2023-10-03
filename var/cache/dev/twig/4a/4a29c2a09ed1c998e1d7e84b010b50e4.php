@@ -172,6 +172,6 @@ class __TwigTemplate_1bd6a7eb3c36408c67a4f76a3815e85a extends Template
     <p>La commande des produits a bien ete confirmee. Nous vous remercions pour votre commande.</p>
 </div>
 
-{% endblock %}", "acme/confirmation.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\acme\\confirmation.html.twig");
+{% endblock %}", "acme/confirmation.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\acme\\confirmation.html.twig");
     }
 }

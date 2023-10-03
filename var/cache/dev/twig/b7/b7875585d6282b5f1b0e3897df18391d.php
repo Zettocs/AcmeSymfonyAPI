@@ -365,6 +365,6 @@ class __TwigTemplate_78002d54174ba7401938ed99f53ac22d extends Template
 {% endblock %}
 
 
-", "admin/admin_ajouter_produit.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\admin\\admin_ajouter_produit.html.twig");
+", "admin/admin_ajouter_produit.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\admin\\admin_ajouter_produit.html.twig");
     }
 }

@@ -609,6 +609,6 @@ class __TwigTemplate_c7d2fe7ea2cc784bdea9e11e03ad7cc7 extends Template
 
 
 {% endblock %}
-", "admin/admin.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\admin\\admin.html.twig");
+", "admin/admin.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\admin\\admin.html.twig");
     }
 }

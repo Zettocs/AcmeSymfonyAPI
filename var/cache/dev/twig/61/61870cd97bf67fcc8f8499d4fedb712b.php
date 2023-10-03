@@ -172,6 +172,6 @@ class __TwigTemplate_ab22a0150e10de9f6e4614ac0278cc9a extends Template
     <p>LE FEUR 2% EST BIEN CRAMPTES</p>
 </div>
 
-{% endblock %}", "admin/admin_confirmation_suppression.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\admin\\admin_confirmation_suppression.html.twig");
+{% endblock %}", "admin/admin_confirmation_suppression.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\admin\\admin_confirmation_suppression.html.twig");
     }
 }

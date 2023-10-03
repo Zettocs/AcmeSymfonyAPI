@@ -40,23 +40,7 @@ class __TwigTemplate_1b1ec8a488bbb82b9fca38303a7ed71d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "_layout/footer.html.twig"));
 
         // line 1
-        echo "    <head>
-        <meta charset=\"utf-8\" />
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />
-        <meta name=\"description\" content=\"\" />
-        <meta name=\"author\" content=\"\" />
-        <title>Freelancer - Start Bootstrap Theme</title>
-        <!-- Favicon-->
-        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
-        <!-- Font Awesome icons (free version)-->
-        <script src=\"https://use.fontawesome.com/releases/v6.3.0/js/all.js\" crossorigin=\"anonymous\"></script>
-        <!-- Google fonts-->
-        <link href=\"https://fonts.googleapis.com/css?family=Montserrat:400,700\" rel=\"stylesheet\" type=\"text/css\" />
-        <link href=\"https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic\" rel=\"stylesheet\" type=\"text/css\" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href=\"css/styles.css\" rel=\"stylesheet\" />
-    </head>
-\t<footer class=\"footer text-center\">
+        echo "\t<footer class=\"footer text-center\">
             <div class=\"container\">
                 <div class=\"row\">
                     <!-- Footer Location-->
@@ -117,23 +101,7 @@ class __TwigTemplate_1b1ec8a488bbb82b9fca38303a7ed71d extends Template
 
     public function getSourceContext()
     {
-        return new Source("    <head>
-        <meta charset=\"utf-8\" />
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />
-        <meta name=\"description\" content=\"\" />
-        <meta name=\"author\" content=\"\" />
-        <title>Freelancer - Start Bootstrap Theme</title>
-        <!-- Favicon-->
-        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
-        <!-- Font Awesome icons (free version)-->
-        <script src=\"https://use.fontawesome.com/releases/v6.3.0/js/all.js\" crossorigin=\"anonymous\"></script>
-        <!-- Google fonts-->
-        <link href=\"https://fonts.googleapis.com/css?family=Montserrat:400,700\" rel=\"stylesheet\" type=\"text/css\" />
-        <link href=\"https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic\" rel=\"stylesheet\" type=\"text/css\" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href=\"css/styles.css\" rel=\"stylesheet\" />
-    </head>
-\t<footer class=\"footer text-center\">
+        return new Source("\t<footer class=\"footer text-center\">
             <div class=\"container\">
                 <div class=\"row\">
                     <!-- Footer Location-->

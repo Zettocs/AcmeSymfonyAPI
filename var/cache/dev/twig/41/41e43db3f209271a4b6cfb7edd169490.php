@@ -181,6 +181,6 @@ class __TwigTemplate_eb54d131752c2a14b39e5dac888513ed extends Template
         </a>
     </ul>
 {% endblock %}
-", "profil/profil.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\profil\\profil.html.twig");
+", "profil/profil.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\profil\\profil.html.twig");
     }
 }

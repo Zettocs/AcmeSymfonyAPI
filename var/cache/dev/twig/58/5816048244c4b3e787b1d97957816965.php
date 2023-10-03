@@ -151,6 +151,6 @@ class __TwigTemplate_7718f8e5a3729c0fb070a718b6d15f79 extends Template
         <button type=\"submit\" class=\"btn btn-primary\">Modifier</button>
     {{ form_end(form) }}
 {% endblock %}
-", "profil/modifier_profil.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\profil\\modifier_profil.html.twig");
+", "profil/modifier_profil.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\profil\\modifier_profil.html.twig");
     }
 }

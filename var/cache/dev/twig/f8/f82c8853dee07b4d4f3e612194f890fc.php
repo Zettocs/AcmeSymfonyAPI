@@ -321,6 +321,6 @@ input {
 </div>
 
 {{form_end(form)}}
-{% endblock %}", "security/inscription.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\security\\inscription.html.twig");
+{% endblock %}", "security/inscription.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\security\\inscription.html.twig");
     }
 }
