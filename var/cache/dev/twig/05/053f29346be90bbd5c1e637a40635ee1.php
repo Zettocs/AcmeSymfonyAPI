@@ -74,7 +74,7 @@ class __TwigTemplate_407a22db669fb5a504815608688e99b2 extends Template
         // line 23
         $this->loadTemplate("_layout/navbar.html.twig", "base.html.twig", 23)->display($context);
         // line 24
-        echo "\t<body style='background-color:#92BDDB; @import url(\"https://fonts.googleapis.com/css2?family=Libre+Baskerville &display=swap\");font-family: \"Libre Baskerville\", serif;'> ";
+        echo "\t<body style='@import url(\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\");font-family: \"Roboto\", serif;'> ";
         $this->displayBlock('body', $context, $blocks);
         // line 25
         echo "\t\t</body>
@@ -217,11 +217,11 @@ class __TwigTemplate_407a22db669fb5a504815608688e99b2 extends Template
 
 \t</head>
 \t{% include('_layout/navbar.html.twig') %}
-\t<body style='background-color:#92BDDB; @import url(\"https://fonts.googleapis.com/css2?family=Libre+Baskerville &display=swap\");font-family: \"Libre Baskerville\", serif;'> {% block body %}{% endblock %}
+\t<body style='@import url(\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\");font-family: \"Roboto\", serif;'> {% block body %}{% endblock %}
 \t\t</body>
 
 \t\t{% include('_layout/footer.html.twig') %}
 \t</html>
-", "base.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\base.html.twig");
     }
 }

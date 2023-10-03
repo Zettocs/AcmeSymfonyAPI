@@ -400,6 +400,6 @@ class __TwigTemplate_673c4476f76c0006080e92052fc0e56d extends Template
 </div>
 
 {% endblock %}
-", "accueil_shop/produit_detail.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\accueil_shop\\produit_detail.html.twig");
+", "accueil_shop/produit_detail.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\accueil_shop\\produit_detail.html.twig");
     }
 }

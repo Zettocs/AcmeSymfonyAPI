@@ -88,7 +88,7 @@ class __TwigTemplate_0de949cae93fc1681318eedf569089fd extends Template
 \t\t}
 
 \t\t.bouton {
-\t\t\tbackground-image: linear-gradient(to right, #27476E 0%, #4d6685 51%, #27476E 100%);
+\t\t\tbackground-image: linear-gradient(to right, #10101E 0%, #4d6685 51%, #01010E 100%);
 \t\t\tmargin-top: 10%;
 \t\t\tborder-radius: 30px;
 \t\t\tbackground-size: 200% auto;
@@ -96,7 +96,7 @@ class __TwigTemplate_0de949cae93fc1681318eedf569089fd extends Template
 \t\t\twidth: 50%;
 \t\t\theight: 50px;
 \t\t\tborder: #27476E;
-\t\t\tfont-size: 150%;
+\t\t\tfont-size: 140%;
 \t\t\tbox-shadow: 0 0 20px #eee;
 \t\t\ttransition: 0.5s;
 \t\t}
@@ -212,7 +212,7 @@ class __TwigTemplate_0de949cae93fc1681318eedf569089fd extends Template
 \t\t}
 
 \t\t.bouton {
-\t\t\tbackground-image: linear-gradient(to right, #27476E 0%, #4d6685 51%, #27476E 100%);
+\t\t\tbackground-image: linear-gradient(to right, #10101E 0%, #4d6685 51%, #01010E 100%);
 \t\t\tmargin-top: 10%;
 \t\t\tborder-radius: 30px;
 \t\t\tbackground-size: 200% auto;
@@ -220,7 +220,7 @@ class __TwigTemplate_0de949cae93fc1681318eedf569089fd extends Template
 \t\t\twidth: 50%;
 \t\t\theight: 50px;
 \t\t\tborder: #27476E;
-\t\t\tfont-size: 150%;
+\t\t\tfont-size: 140%;
 \t\t\tbox-shadow: 0 0 20px #eee;
 \t\t\ttransition: 0.5s;
 \t\t}
@@ -267,6 +267,6 @@ class __TwigTemplate_0de949cae93fc1681318eedf569089fd extends Template
 \t\t</form>
 \t</div>
 {% endblock %}
-", "security/login.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\security\\login.html.twig");
+", "security/login.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\security\\login.html.twig");
     }
 }

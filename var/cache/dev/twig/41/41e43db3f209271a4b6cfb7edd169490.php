@@ -113,6 +113,22 @@ class __TwigTemplate_eb54d131752c2a14b39e5dac888513ed extends Template
         // line 13
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13), "iduser", [], "any", false, false, false, 13), "html", null, true);
         echo "</li>
+        <a href=\"";
+        // line 14
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifier_profil");
+        echo "\" class=\"nav-link\">
+            <button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
+\t\t\t\tModifier le profil
+\t\t\t</button>
+        </a>
+        <a href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("historique");
+        echo "\" class=\"nav-link\">
+            <button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
+\t\t\t\tVoir l'historique des commandes
+\t\t\t</button>
+        </a>
     </ul>
 ";
         
@@ -135,7 +151,7 @@ class __TwigTemplate_eb54d131752c2a14b39e5dac888513ed extends Template
 
     public function getDebugInfo()
     {
-        return array (  114 => 13,  110 => 12,  106 => 11,  102 => 10,  98 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  126 => 19,  118 => 14,  114 => 13,  110 => 12,  106 => 11,  102 => 10,  98 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -153,8 +169,18 @@ class __TwigTemplate_eb54d131752c2a14b39e5dac888513ed extends Template
         <li>Ville : {{ app.user.ville }}</li>
         <li>Pays : {{ app.user.pays }}</li>
         <li>Id : {{ app.user.iduser }}</li>
+        <a href=\"{{ path('modifier_profil') }}\" class=\"nav-link\">
+            <button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
+\t\t\t\tModifier le profil
+\t\t\t</button>
+        </a>
+        <a href=\"{{ path('historique') }}\" class=\"nav-link\">
+            <button style=\"font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E\">
+\t\t\t\tVoir l'historique des commandes
+\t\t\t</button>
+        </a>
     </ul>
 {% endblock %}
-", "profil/profil.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\profil\\profil.html.twig");
+", "profil/profil.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\profil\\profil.html.twig");
     }
 }

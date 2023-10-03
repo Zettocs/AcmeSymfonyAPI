@@ -1,171 +1,40 @@
-<style>
-	nav {
-		overflow: hidden;
-		height: 80px;
-		display: flex;
-		justify-content: flex-end;
-		width: 100%;
-		background-color: #27476E;
-	}
-	.navbar-brand img {
-		width: 100px;
-	}
-	@media(max-width: 991.5px) {
-		nav {
-			background-color: #92BDDB;
-		}
-		.navbar-brand img {
-			max-width: 50px;
-			max-height: 50px;
-			content: url({{asset('images/burger.png')}});
-
-		}
-
-	}
-	.show-navbar {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: #1E2E45;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 999;
-	}
-	.hide-navbar {
-		display: none;
-	}
-	.close-navbar-button {
-		width: 100px;
-		background-color: #1E2E45;
-		border: none;
-		cursor: pointer;
-		position: absolute;
-		top: 4%;
-		left: -2%;
-	}
-	.burger2 {
-		width: 50%
-	}
-	.centre {
-		text-align: center;
-		list-style-type: none;
-	}
-	ul {
-		list-style-type: none;
-	}
-	.boutons_nav {
-		color: white;
-		text-decoration: none;
-		font-size: 200%;
-	}
-</style>
-
-<body>
-	<nav class="navbar navbar-expand-lg">
-		<div class="container-fluid">
-			{% if not app.user %}
-				<a class="navbar-brand" href="{{ path('accueil') }}" onclick="if (window.innerWidth > 991) { return true; } toggleNavbar(); return false;"><img style="width:100px" src="{{asset ('images/acme.png')}}"></a>
-
-			{% else %}
-				<a class="navbar-brand" href="{{ path('accueil_shop') }}" onclick="if (window.innerWidth > 991) { return true; } toggleNavbar(); return false;"><img style="width:100px" src="{{asset ('images/acme.png')}}"></a>
-			{% endif %}
-			<div class="collapse navbar-collapse" id="navbarColor02">
-				<ul class="navbar-nav ml-auto" style="margin-left :70%">
-				{% if is_granted('ROLE_ADMIN') %}
-  					<li class="nav-item">
-						<a href="{{ path('page_admin') }}" class="nav-link">
-							<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
-								Gestion
-							</button>
-						</a>
-						<a href="{{ path('admin_historique') }}" class="nav-link">
-							<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
-								Historique
-							</button>
-						</a>
-					</li>
-				{% endif %}
-					{% if not app.user %}
-						<li class="">
-							<a href="{{ path('security_connexion') }}" class="nav-link">
-								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
-									Connexion
-								</button>
-
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{ path('security_inscription') }}" class="nav-link">
-								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
-									Inscription
-								</button>
-
-							</a>
-						</li>
-					{% else %}
-
-						<li class="nav-item">
-							<a href="{{ path('panier') }}" class="nav-link">
-								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;">
-									Panier
-								</button>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{ path('profil') }}" class="nav-link">
-								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;">
-									Profil
-								</button>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{ path('security_deconnexion') }}" class="nav-link">
-								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:20%">
-									Déconnexion
-								</button>
-							</a>
-						</li>
-					{% endif %}
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<div class="show-navbar hide-navbar">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-
-					<button class="close-navbar-button" onclick="toggleNavbar();"><img class="burger2" src="{{asset ('images/burger2.png')}}"></button>
-					<div class="centre">
-						<ul>
-							{% if not app.user %}
-								<li>
-									<a class="boutons_nav" href="{{ path('accueil') }}">A c c u e i l</a>
-								</li>
-							</br>
-						</li>
-						<li>
-							<div style="background-color: white; width: 30%; height: 2px; display: inline-block;"></div>
-						</li>
-					</br>
-					<li>
-						<a class="boutons_nav" href="{{ path('security_connexion') }}">C o n n e x i o n</a>
-					</li>
-				</br>
-			</li>
-			<li>
-				<div style="background-color: white; width: 30%; height: 2px; display: inline-block;"></div>
-			</li>
-		</br>
-	</body>
-</body></li><li>
-<a class="boutons_nav" href="{{ path('security_inscription') }}">I n s c r i p t i o n</a></li>{% else %}<li>
-<a class="boutons_nav" href="{{ path('accueil_shop') }}">A c c u e i l</a></li></br></li>
-<li><div style="background-color: white; width: 30%; height: 2px; display: inline-block;"></div></li></br>
-<li><a class="boutons_nav" href="{{ path('panier') }}">P a n i e r</a></li></br></li><li>
-<div style="background-color: white; width: 30%; height: 2px; display: inline-block;"></div></li></br>
-<li><a class="boutons_nav" href="{{ path('security_deconnexion') }}">D é c o n n e x i o n</a></li>{% endif %}</body> </ul></div></body></div></div></div></body></body></div><script src="{{ asset ('js/navbar.js') }}"></script></body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Freelancer - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+            	<i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('security_connexion') }}">Connexion</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+                </ul>
+        	</div>
+    </div>
+</nav>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>

@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="google-map" style="height: 400px; width: 100%;"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAzPX599Akl0aL4UhXlHTPxfIHte49kWM&callback=initMap" async defer></script>
+    <script src="{{ asset('maps.js') }}"></script>
+
+{% endblock %}

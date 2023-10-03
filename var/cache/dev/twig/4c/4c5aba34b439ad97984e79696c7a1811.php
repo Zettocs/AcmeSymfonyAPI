@@ -430,6 +430,6 @@ class __TwigTemplate_847cba7e97b8ae7bbc51e030d6a2e90c extends Template
 {% endblock %}
 
 
-", "admin/admin_produit_detail.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\admin\\admin_produit_detail.html.twig");
+", "admin/admin_produit_detail.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\admin\\admin_produit_detail.html.twig");
     }
 }

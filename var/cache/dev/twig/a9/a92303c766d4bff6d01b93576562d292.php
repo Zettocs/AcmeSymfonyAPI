@@ -395,6 +395,6 @@ class __TwigTemplate_141e84890b0da4a5baa228af3c69b6cf extends Template
 </div>
 
 {% endblock %}
-", "acme/panier.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\acme\\panier.html.twig");
+", "acme/panier.html.twig", "C:\\wamp64\\www\\AcmeSymfonyAPI\\templates\\acme\\panier.html.twig");
     }
 }

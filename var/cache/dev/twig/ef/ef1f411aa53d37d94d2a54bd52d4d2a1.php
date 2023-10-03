@@ -86,112 +86,188 @@ class __TwigTemplate_768e7a1f248a33d1c33a722911ae2a3f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "\t<style>
-\t\t.body {
-\t\t\theight: 100%
-\t\t}
-\t\t.gauche {
-\t\t\tposition: absolute;
-\t\t\tmargin-left: 0;
-\t\t\twidth: 60%;
-\t\t\theight: 89.7%;
-\t\t}
-\t\t.droite {
-\t\t\tposition: absolute;
-\t\t\tmargin-left: 60%;
-\t\t\twidth: 40%;
-\t\t\theight: 89.7%;
-\t\t}
-\t\t.titreg {
-\t\t\tfont-size: 500%;
-\t\t\tcolor: #27476E;
-\t\t}
-\t\t.p1 {
-\t\t\tcolor: black;
-\t\t\tmargin-bottom: -2%;
-\t\t\tfont-size: 200%;
-\t\t\tfont-weight: 200;
-\t\t}
-\t\t.background_carousel {
-\t\t\tpadding-top: 4%;
-\t\t\tbackground-color: white;
-\t\t\twidth: 90%;
-\t\t\theight: 90%;
-\t\t\tmargin-top: 5%;
-\t\t\tmargin-left: 5%;
-\t\t\tborder-radius: 5%
-\t\t}
-\t\t.backgroun_shoes {
-\t\t\tbackground-color: #92BDDB;
-\t\t\twidth: 90%;
-\t\t\theight: 70%;
-\t\t\tborder-radius: 5%;
-\t\t\tposition: relative;
-\t\t\tmargin-left: 5%;
-\t\t}
-\t\t.texte {
-\t\t\tmargin-left: 20%;
-\t\t\tmargin-top: 20%;
-\t\t}
-\t\t.image {
-\t\t\tmargin-left: -45%;
-\t\t\tmargin-top: -10%;
-\t\t\twidth: 150%
-\t\t}
-\t\t@media(max-width: 720px) {
-\t\t\t.droite {
-\t\t\t\tmargin: 0 auto;
-\t\t\t\twidth: 100%;
-\t\t\t\tposition: absolute;
-\t\t\t}
-\t\t\t.gauche {
-\t\t\t\tmargin-left: ;
-\t\t\t\ttext-align: center;
-\t\t\t\twidth: 100%;
-\t\t\t}
-\t\t\t.background_carousel {
-\t\t\t\theight: 65%;
-\t\t\t\tmargin-top: 47%;
-\t\t\t\twidth: 75%;
-\t\t\t\tmargin-left: 12%;
-\t\t\t}
-\t\t\t.texte {
-\t\t\t\tmargin-left: 0;
-\t\t\t}
-\t\t\t.image {
-\t\t\t\tmargin-left: -15%;
-\t\t\t\tmargin-top: 5%;
-\t\t\t\twidth: 120%
-\t\t\t}
-\t\t\t.titreg {
-\t\t\t\tfont-size: 400%;
-\t\t\t\tmargin-top: -10%;
-\t\t\t}
-\t\t\t.p1 {
-\t\t\t\tfont-size: 100%;
-\t\t\t}
-\t\t\t.backgroun_shoes {
-\t\t\t\theight: 80%;
-\t\t\t\tmargin-left: 5%;
-\t\t\t}
-\t\t}
-\t</style>
-\t<div class=\"gauche\">
-\t\t<div class=\"texte\">
-\t\t\t<h1 class=\"titreg\">A C M E</h1>
-\t\t\t<p class=\"p1\">LE LUXE DE PORTER DU</p>
-\t\t</br>
-\t\t<p class=\"p1\">STREETWEAR.</p>
-\t</div>
-</div>
-<div class=\"droite\">
-\t<div class=\"background_carousel\">
-\t\t<div class=\"backgroun_shoes\"><img class=\"image\" src=\"";
-        // line 108
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/chaussure_accueil1.png"), "html", null, true);
-        echo "\"></div>
-\t</div>
-</div>";
+        echo "\t<header class=\"masthead bg-primary text-white text-center\">
+            <div class=\"container d-flex align-items-center flex-column\">
+                <!-- Masthead Avatar Image-->
+                <img class=\"masthead-avatar mb-5\" src=\"assets/img/avataaars.svg\" alt=\"...\" />
+                <!-- Masthead Heading-->
+                <h1 class=\"masthead-heading text-uppercase mb-0\">Start Bootstrap</h1>
+                <!-- Icon Divider-->
+                <div class=\"divider-custom divider-light\">
+                    <div class=\"divider-custom-line\"></div>
+                    <div class=\"divider-custom-icon\"><i class=\"fas fa-star\"></i></div>
+                    <div class=\"divider-custom-line\"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class=\"masthead-subheading font-weight-light mb-0\">Graphic Artist - Web Designer - Illustrator</p>
+            </div>
+        </header>
+        <!-- Portfolio Section-->
+        <section class=\"page-section portfolio\" id=\"portfolio\">
+            <div class=\"container\">
+                <!-- Portfolio Section Heading-->
+                <h2 class=\"page-section-heading text-center text-uppercase text-secondary mb-0\">Portfolio</h2>
+                <!-- Icon Divider-->
+                <div class=\"divider-custom\">
+                    <div class=\"divider-custom-line\"></div>
+                    <div class=\"divider-custom-icon\"><i class=\"fas fa-star\"></i></div>
+                    <div class=\"divider-custom-line\"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class=\"row justify-content-center\">
+                    <!-- Portfolio Item 1-->
+                    <div class=\"col-md-6 col-lg-4 mb-5\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal1\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/cabin.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2-->
+                    <div class=\"col-md-6 col-lg-4 mb-5\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal2\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/cake.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3-->
+                    <div class=\"col-md-6 col-lg-4 mb-5\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal3\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/circus.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 4-->
+                    <div class=\"col-md-6 col-lg-4 mb-5 mb-lg-0\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal4\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/game.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 5-->
+                    <div class=\"col-md-6 col-lg-4 mb-5 mb-md-0\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal5\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/safe.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 6-->
+                    <div class=\"col-md-6 col-lg-4\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal6\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/submarine.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section-->
+        <section class=\"page-section bg-primary text-white mb-0\" id=\"about\">
+            <div class=\"container\">
+                <!-- About Section Heading-->
+                <h2 class=\"page-section-heading text-center text-uppercase text-white\">About</h2>
+                <!-- Icon Divider-->
+                <div class=\"divider-custom divider-light\">
+                    <div class=\"divider-custom-line\"></div>
+                    <div class=\"divider-custom-icon\"><i class=\"fas fa-star\"></i></div>
+                    <div class=\"divider-custom-line\"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class=\"row\">
+                    <div class=\"col-lg-4 ms-auto\"><p class=\"lead\">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
+                    <div class=\"col-lg-4 me-auto\"><p class=\"lead\">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+                </div>
+                <!-- About Section Button-->
+                <div class=\"text-center mt-4\">
+                    <a class=\"btn btn-xl btn-outline-light\" href=\"https://startbootstrap.com/theme/freelancer/\">
+                        <i class=\"fas fa-download me-2\"></i>
+                        Free Download!
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section-->
+        <section class=\"page-section\" id=\"contact\">
+            <div class=\"container\">
+                <!-- Contact Section Heading-->
+                <h2 class=\"page-section-heading text-center text-uppercase text-secondary mb-0\">Contact Me</h2>
+                <!-- Icon Divider-->
+                <div class=\"divider-custom\">
+                    <div class=\"divider-custom-line\"></div>
+                    <div class=\"divider-custom-icon\"><i class=\"fas fa-star\"></i></div>
+                    <div class=\"divider-custom-line\"></div>
+                </div>
+                <!-- Contact Section Form-->
+                <div class=\"row justify-content-center\">
+                    <div class=\"col-lg-8 col-xl-7\">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id=\"contactForm\" data-sb-form-api-token=\"API_TOKEN\">
+                            <!-- Name input-->
+                            <div class=\"form-floating mb-3\">
+                                <input class=\"form-control\" id=\"name\" type=\"text\" placeholder=\"Enter your name...\" data-sb-validations=\"required\" />
+                                <label for=\"name\">Full name</label>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"name:required\">A name is required.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class=\"form-floating mb-3\">
+                                <input class=\"form-control\" id=\"email\" type=\"email\" placeholder=\"name@example.com\" data-sb-validations=\"required,email\" />
+                                <label for=\"email\">Email address</label>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"email:required\">An email is required.</div>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"email:email\">Email is not valid.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class=\"form-floating mb-3\">
+                                <input class=\"form-control\" id=\"phone\" type=\"tel\" placeholder=\"(123) 456-7890\" data-sb-validations=\"required\" />
+                                <label for=\"phone\">Phone number</label>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"phone:required\">A phone number is required.</div>
+                            </div>
+                            <!-- Message input-->
+                            <div class=\"form-floating mb-3\">
+                                <textarea class=\"form-control\" id=\"message\" type=\"text\" placeholder=\"Enter your message here...\" style=\"height: 10rem\" data-sb-validations=\"required\"></textarea>
+                                <label for=\"message\">Message</label>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"message:required\">A message is required.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class=\"d-none\" id=\"submitSuccessMessage\">
+                                <div class=\"text-center mb-3\">
+                                    <div class=\"fw-bolder\">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href=\"https://startbootstrap.com/solution/contact-forms\">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class=\"d-none\" id=\"submitErrorMessage\"><div class=\"text-center text-danger mb-3\">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <button class=\"btn btn-primary btn-xl disabled\" id=\"submitButton\" type=\"submit\">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -212,7 +288,7 @@ class __TwigTemplate_768e7a1f248a33d1c33a722911ae2a3f extends Template
 
     public function getDebugInfo()
     {
-        return array (  191 => 108,  89 => 8,  79 => 7,  59 => 4,  36 => 1,);
+        return array (  89 => 8,  79 => 7,  59 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -224,109 +300,188 @@ class __TwigTemplate_768e7a1f248a33d1c33a722911ae2a3f extends Template
 {% endblock %}
 
 {% block body %}
-\t<style>
-\t\t.body {
-\t\t\theight: 100%
-\t\t}
-\t\t.gauche {
-\t\t\tposition: absolute;
-\t\t\tmargin-left: 0;
-\t\t\twidth: 60%;
-\t\t\theight: 89.7%;
-\t\t}
-\t\t.droite {
-\t\t\tposition: absolute;
-\t\t\tmargin-left: 60%;
-\t\t\twidth: 40%;
-\t\t\theight: 89.7%;
-\t\t}
-\t\t.titreg {
-\t\t\tfont-size: 500%;
-\t\t\tcolor: #27476E;
-\t\t}
-\t\t.p1 {
-\t\t\tcolor: black;
-\t\t\tmargin-bottom: -2%;
-\t\t\tfont-size: 200%;
-\t\t\tfont-weight: 200;
-\t\t}
-\t\t.background_carousel {
-\t\t\tpadding-top: 4%;
-\t\t\tbackground-color: white;
-\t\t\twidth: 90%;
-\t\t\theight: 90%;
-\t\t\tmargin-top: 5%;
-\t\t\tmargin-left: 5%;
-\t\t\tborder-radius: 5%
-\t\t}
-\t\t.backgroun_shoes {
-\t\t\tbackground-color: #92BDDB;
-\t\t\twidth: 90%;
-\t\t\theight: 70%;
-\t\t\tborder-radius: 5%;
-\t\t\tposition: relative;
-\t\t\tmargin-left: 5%;
-\t\t}
-\t\t.texte {
-\t\t\tmargin-left: 20%;
-\t\t\tmargin-top: 20%;
-\t\t}
-\t\t.image {
-\t\t\tmargin-left: -45%;
-\t\t\tmargin-top: -10%;
-\t\t\twidth: 150%
-\t\t}
-\t\t@media(max-width: 720px) {
-\t\t\t.droite {
-\t\t\t\tmargin: 0 auto;
-\t\t\t\twidth: 100%;
-\t\t\t\tposition: absolute;
-\t\t\t}
-\t\t\t.gauche {
-\t\t\t\tmargin-left: ;
-\t\t\t\ttext-align: center;
-\t\t\t\twidth: 100%;
-\t\t\t}
-\t\t\t.background_carousel {
-\t\t\t\theight: 65%;
-\t\t\t\tmargin-top: 47%;
-\t\t\t\twidth: 75%;
-\t\t\t\tmargin-left: 12%;
-\t\t\t}
-\t\t\t.texte {
-\t\t\t\tmargin-left: 0;
-\t\t\t}
-\t\t\t.image {
-\t\t\t\tmargin-left: -15%;
-\t\t\t\tmargin-top: 5%;
-\t\t\t\twidth: 120%
-\t\t\t}
-\t\t\t.titreg {
-\t\t\t\tfont-size: 400%;
-\t\t\t\tmargin-top: -10%;
-\t\t\t}
-\t\t\t.p1 {
-\t\t\t\tfont-size: 100%;
-\t\t\t}
-\t\t\t.backgroun_shoes {
-\t\t\t\theight: 80%;
-\t\t\t\tmargin-left: 5%;
-\t\t\t}
-\t\t}
-\t</style>
-\t<div class=\"gauche\">
-\t\t<div class=\"texte\">
-\t\t\t<h1 class=\"titreg\">A C M E</h1>
-\t\t\t<p class=\"p1\">LE LUXE DE PORTER DU</p>
-\t\t</br>
-\t\t<p class=\"p1\">STREETWEAR.</p>
-\t</div>
-</div>
-<div class=\"droite\">
-\t<div class=\"background_carousel\">
-\t\t<div class=\"backgroun_shoes\"><img class=\"image\" src=\"{{ asset ('images/chaussure_accueil1.png') }}\"></div>
-\t</div>
-</div>{% endblock %}
-", "accueil/index.html.twig", "C:\\EPSI Projet\\Symfony\\AcmeSymfonyAPI\\templates\\accueil\\index.html.twig");
+\t<header class=\"masthead bg-primary text-white text-center\">
+            <div class=\"container d-flex align-items-center flex-column\">
+                <!-- Masthead Avatar Image-->
+                <img class=\"masthead-avatar mb-5\" src=\"assets/img/avataaars.svg\" alt=\"...\" />
+                <!-- Masthead Heading-->
+                <h1 class=\"masthead-heading text-uppercase mb-0\">Start Bootstrap</h1>
+                <!-- Icon Divider-->
+                <div class=\"divider-custom divider-light\">
+                    <div class=\"divider-custom-line\"></div>
+                    <div class=\"divider-custom-icon\"><i class=\"fas fa-star\"></i></div>
+                    <div class=\"divider-custom-line\"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class=\"masthead-subheading font-weight-light mb-0\">Graphic Artist - Web Designer - Illustrator</p>
+            </div>
+        </header>
+        <!-- Portfolio Section-->
+        <section class=\"page-section portfolio\" id=\"portfolio\">
+            <div class=\"container\">
+                <!-- Portfolio Section Heading-->
+                <h2 class=\"page-section-heading text-center text-uppercase text-secondary mb-0\">Portfolio</h2>
+                <!-- Icon Divider-->
+                <div class=\"divider-custom\">
+                    <div class=\"divider-custom-line\"></div>
+                    <div class=\"divider-custom-icon\"><i class=\"fas fa-star\"></i></div>
+                    <div class=\"divider-custom-line\"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class=\"row justify-content-center\">
+                    <!-- Portfolio Item 1-->
+                    <div class=\"col-md-6 col-lg-4 mb-5\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal1\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/cabin.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2-->
+                    <div class=\"col-md-6 col-lg-4 mb-5\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal2\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/cake.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3-->
+                    <div class=\"col-md-6 col-lg-4 mb-5\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal3\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/circus.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 4-->
+                    <div class=\"col-md-6 col-lg-4 mb-5 mb-lg-0\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal4\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/game.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 5-->
+                    <div class=\"col-md-6 col-lg-4 mb-5 mb-md-0\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal5\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/safe.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 6-->
+                    <div class=\"col-md-6 col-lg-4\">
+                        <div class=\"portfolio-item mx-auto\" data-bs-toggle=\"modal\" data-bs-target=\"#portfolioModal6\">
+                            <div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">
+                                <div class=\"portfolio-item-caption-content text-center text-white\"><i class=\"fas fa-plus fa-3x\"></i></div>
+                            </div>
+                            <img class=\"img-fluid\" src=\"assets/img/portfolio/submarine.png\" alt=\"...\" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section-->
+        <section class=\"page-section bg-primary text-white mb-0\" id=\"about\">
+            <div class=\"container\">
+                <!-- About Section Heading-->
+                <h2 class=\"page-section-heading text-center text-uppercase text-white\">About</h2>
+                <!-- Icon Divider-->
+                <div class=\"divider-custom divider-light\">
+                    <div class=\"divider-custom-line\"></div>
+                    <div class=\"divider-custom-icon\"><i class=\"fas fa-star\"></i></div>
+                    <div class=\"divider-custom-line\"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class=\"row\">
+                    <div class=\"col-lg-4 ms-auto\"><p class=\"lead\">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
+                    <div class=\"col-lg-4 me-auto\"><p class=\"lead\">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+                </div>
+                <!-- About Section Button-->
+                <div class=\"text-center mt-4\">
+                    <a class=\"btn btn-xl btn-outline-light\" href=\"https://startbootstrap.com/theme/freelancer/\">
+                        <i class=\"fas fa-download me-2\"></i>
+                        Free Download!
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section-->
+        <section class=\"page-section\" id=\"contact\">
+            <div class=\"container\">
+                <!-- Contact Section Heading-->
+                <h2 class=\"page-section-heading text-center text-uppercase text-secondary mb-0\">Contact Me</h2>
+                <!-- Icon Divider-->
+                <div class=\"divider-custom\">
+                    <div class=\"divider-custom-line\"></div>
+                    <div class=\"divider-custom-icon\"><i class=\"fas fa-star\"></i></div>
+                    <div class=\"divider-custom-line\"></div>
+                </div>
+                <!-- Contact Section Form-->
+                <div class=\"row justify-content-center\">
+                    <div class=\"col-lg-8 col-xl-7\">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id=\"contactForm\" data-sb-form-api-token=\"API_TOKEN\">
+                            <!-- Name input-->
+                            <div class=\"form-floating mb-3\">
+                                <input class=\"form-control\" id=\"name\" type=\"text\" placeholder=\"Enter your name...\" data-sb-validations=\"required\" />
+                                <label for=\"name\">Full name</label>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"name:required\">A name is required.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class=\"form-floating mb-3\">
+                                <input class=\"form-control\" id=\"email\" type=\"email\" placeholder=\"name@example.com\" data-sb-validations=\"required,email\" />
+                                <label for=\"email\">Email address</label>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"email:required\">An email is required.</div>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"email:email\">Email is not valid.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class=\"form-floating mb-3\">
+                                <input class=\"form-control\" id=\"phone\" type=\"tel\" placeholder=\"(123) 456-7890\" data-sb-validations=\"required\" />
+                                <label for=\"phone\">Phone number</label>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"phone:required\">A phone number is required.</div>
+                            </div>
+                            <!-- Message input-->
+                            <div class=\"form-floating mb-3\">
+                                <textarea class=\"form-control\" id=\"message\" type=\"text\" placeholder=\"Enter your message here...\" style=\"height: 10rem\" data-sb-validations=\"required\"></textarea>
+                                <label for=\"message\">Message</label>
+                                <div class=\"invalid-feedback\" data-sb-feedback=\"message:required\">A message is required.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class=\"d-none\" id=\"submitSuccessMessage\">
+                                <div class=\"text-center mb-3\">
+                                    <div class=\"fw-bolder\">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href=\"https://startbootstrap.com/solution/contact-forms\">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class=\"d-none\" id=\"submitErrorMessage\"><div class=\"text-center text-danger mb-3\">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <button class=\"btn btn-primary btn-xl disabled\" id=\"submitButton\" type=\"submit\">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>{% endblock %}
+", "accueil/index.html.twig", "C:\\Projets\\Php\\AcmeSymfonyAPI\\templates\\accueil\\index.html.twig");
     }
 }

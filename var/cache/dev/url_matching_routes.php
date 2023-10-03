@@ -34,6 +34,8 @@ return [
         '/api/deconnexion' => [[['_route' => 'security_api_deconnexion', '_controller' => 'App\\Controller\\SecurityController::apiLogout'], null, ['POST' => 0], null, false, false, null]],
         '/api/modifier-stock' => [[['_route' => 'modifier_stock', '_controller' => 'App\\Controller\\SecurityController::modifierStock'], null, ['POST' => 0], null, false, false, null]],
         '/api/historique_commande' => [[['_route' => 'app_security_getallcommandes', '_controller' => 'App\\Controller\\SecurityController::getAllCommandes'], null, ['GET' => 0], null, false, false, null]],
+        '/api/ajout_description' => [[['_route' => 'ajout_description', '_controller' => 'App\\Controller\\SecurityController::ajoutDescription'], null, ['POST' => 0], null, false, false, null]],
+        '/start' => [[['_route' => 'start', '_controller' => 'App\\Controller\\StartController::index'], null, null, null, false, false, null]],
         '/api/produits' => [[['_route' => 'api_produits', '_controller' => 'App\\Controller\\SecurityController::getProduits'], null, ['GET' => 0], null, false, false, null]],
         '/page-admin' => [[['_route' => 'page_admin', '_controller' => 'App\\Controller\\AdminController::pageAdmin'], null, ['GET' => 0], null, false, false, null]],
     ],
